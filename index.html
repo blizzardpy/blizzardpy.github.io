@@ -1,86 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amirkian Kiani's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Amirkian Kiani Portfolio</title>
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Amirkian Kiani</h1>
-            <p>Experienced Backend Developer</p>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+	<!-- Header -->
+	<header>
+		<nav>
+			<div class="logo">Amirkian Kiani</div>
+			<ul class="nav-links">
+				<li><a href="#about">About</a></li>
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="#projects">Projects</a></li>
+				<li><a href="#experience">Experience</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+			<a href="src/Amirkian Kiani Resume.pdf" class="btn">Download Resume</a>
+		</nav>
+	</header>
 
-    <section id="about" class="container">
-        <h2>About Me</h2>
-        <p>Experienced Backend Developer with over 4 years of expertise in creating content-rich websites using modern technologies. Skilled in delivering high-performance, scalable solutions with a focus on reliability and efficiency. Known for quick adaptability, strong communication skills, and a team-oriented approach.</p>
-    </section>
+	<!-- Hero Section -->
+	<section id="hero">
+		<div class="hero-content">
+			<h1>Experienced Backend Developer</h1>
+			<p>I create content-rich, high-performance web solutions.</p>
+			<br>
+			<a href="#contact" class="btn">Get in Touch</a>
+		</div>
+		<div class="hero-image">
+			<img src="src/images/profile-image.jpeg" alt="Amirkian Kiani" loading="lazy">
+		</div>
+	</section>
 
-    <section id="experience" class="container">
-        <h2>Experience</h2>
-        <!-- Include each job in a separate article -->
-        <article>
-            <h3>Freelance Software Engineer</h3>
-            <p>Freelancer, Tehran, Iran (October 2023 - Present)</p>
-            <ul>
-                <li>Designed RESTful APIs using Go/Gin and Python/Django</li>
-                <li>Developed scalable microservices like a streaming service</li>
-                <li>Implemented CI/CD pipelines, reducing deployment time</li>
-                <li>Integrated secure authentication and third-party services</li>
-            </ul>
-        </article>
-        <!-- Additional experience entries -->
-    </section>
+	<!-- About Section -->
+	<section id="about">
+		<h2>About Me</h2>
+		<br>
+		<div class="about-content">
+			<p>
+				I am a highly experienced backend developer with a proven track record of delivering high-performance,
+				content-rich websites using modern technologies. Over the past four years, I have developed scalable
+				solutions that consistently meet and exceed performance and efficiency standards.
+				My strong adaptability, excellent communication skills, and team-oriented approach have allowed me to
+				thrive in fast-paced environments and work effectively with diverse stakeholders.
+				Whether it's implementing robust architectures, optimizing database queries, or integrating APIs,
+				I am passionate about delivering quality solutions that exceed expectations.
+			</p>
+		</div>
+	</section>
 
-    <section id="projects" class="container">
-        <h2>Projects</h2>
-        <ul>
-            <li><a href="https://itunes.ir" target="_blank">iTunes</a> - Music platform for listening, downloading, and purchasing music.</li>
-            <li><a href="https://chaargoosh.com" target="_blank">Chaargoosh</a> - Platform for audiobooks, podcasts, and book packs.</li>
-            <!-- Additional project entries -->
-        </ul>
-    </section>
+	<!-- Skills Section -->
+	<section id="skills">
+		<h2>Skills</h2>
+		<div class="skills-grid">
+			<div class="skill">Python</div>
+				<div class="skill">Go</div>
+				<div class="skill">JavaScript</div>
+				<div class="skill">Swift</div>
+				<div class="skill">Dart</div>
+				<div class="skill">Django</div>
+				<div class="skill">Flask</div>
+				<div class="skill">FastAPI</div>
+				<div class="skill">Gin</div>
+				<div class="skill">Next.js</div>
+				<div class="skill">Docker</div>
+				<div class="skill">Redis</div>
+				<div class="skill">Celery</div>
+				<div class="skill">PostgreSQL</div>
+				<div class="skill">Mariadb</div>
+				<div class="skill">Nginx</div>
+				<div class="skill">Kubernetes</div>
+				<div class="skill">Node.js</div>
+				<div class="skill">ReactJS</div>
+				<div class="skill">SwiftUI</div>
+				<div class="skill">Flutter</div>
+				<div class="skill">Git</div>
+				<div class="skill">FFmpeg</div>
+				<div class="skill">OpenAI API</div>
+		</div>
+	</section>
 
-    <section id="education" class="container">
-        <h2>Education</h2>
-        <p>Bachelor of Computer Engineering, Quchan University of Technology, Quchan, Razavi Khorasan, Iran, 2024, GPA: 3.75</p>
-    </section>
+	<!-- Projects Section -->
+	<section id="projects">
+		<h2>Projects</h2>
+		<div class="projects-grid">
+			<div class="project-card">
+				<img src="https://www.google.com/s2/favicons?sz=64&domain=itunes.ir" alt="iTunes Project">
+				<div class="project-info">
+					<h3>iTunes</h3>
+					<p>Music platform for listening, downloading, and purchasing music.</p>
+					<a href="https://itunes.ir" target="_blank">View Project</a>
+				</div>
+			</div>
+			<div class="project-card">
+				<img src="https://www.google.com/s2/favicons?sz=64&domain=chaargoosh.com" alt="ChaarGoosh Project">
+				<div class="project-info">
+					<h3>ChaarGoosh</h3>
+					<p>Platform for audiobooks, podcasts, and book packs.</p>
+					<a href="https://chaargoosh.com" target="_blank">View Project</a>
+				</div>
+			</div>
+			<div class="project-card">
+				<img src="https://www.google.com/s2/favicons?sz=64&domain=baazigooshi.com" alt="Baazigooshi Project">
+				<div class="project-info">
+					<h3>Baazigooshi</h3>
+					<p> A web based gaming platform with many B2B Projects for <a href="https://namava.ir" target="_blank">Namava</a>, <a href="https://digikala.com" target="_blank">Digikala</a> and <a href="https://zarebin.ir" target="_blank">Zarebin</a>.</p>
+					<a href="https://baazigooshi.com" target="_blank">View Project</a>
+				</div>
+			</div>
+			<div class="project-card">
+				<img src="https://www.google.com/s2/favicons?sz=64&domain=vidaneh.com" alt="Vidaneh Project">
+				<div class="project-info">
+					<h3>Vidaneh</h3>
+					<p> A video sharing and streaming platform for sharing and streaming videos.</p>
+					<a href="https://vidaneh.com" target="_blank">View Project</a>
+				</div>
+			</div>
+			<div class="project-card">
+				<img src="https://www.google.com/s2/favicons?sz=64&domain=azad.im" alt="Azad Project">
+				<div class="project-info">
+					<h3>Azad</h3>
+					<p>Social media application for sharing thoughts and ideas.</p>
+					<a href="https://azad.im" target="_blank">View Project</a>
+				</div>
+			</div>
+			<div class="project-card">
+				<img src="https://www.google.com/s2/favicons?sz=64&domain=iqbalforum.org" alt="Iqbal Forum Project">
+				<div class="project-info">
+					<h3>Iqbal Forum</h3>
+					<p>News and magazine website for sharing news between iran and pakistan.</p>
+					<a href="https://iqbalforum.org" target="_blank">View Project</a>
+				</div>
+			</div>
+			<div class="project-card">
+				<img src="https://www.google.com/s2/favicons?sz=64&domain=gardima.ir" alt="Gardima Project">
+				<div class="project-info">
+					<h3>Gardima</h3>
+					<p>A website developed for buying tickets and reserve hotels.</p>
+					<a href="https://gardima.ir" target="_blank">View Project</a>
+				</div>
+			</div>
+			<!-- Add more project cards as needed -->
+		</div>
+	</section>
 
-    <section id="skills" class="container">
-        <h2>Skills</h2>
-        <ul>
-            <li><strong>Languages:</strong> Python, Go, JavaScript, Swift, Dart</li>
-            <li><strong>Frameworks:</strong> Django, Django Rest Framework, FastAPI, Gin</li>
-            <li><strong>Technologies:</strong> Docker, Redis, Celery, PostgreSQL, MariaDB, Nginx, Kubernetes, Node.js, ReactJS, SwiftUI (iOS), Flutter, NodeJS</li>
-            <li><strong>Tools:</strong> Git, FFmpeg, OpenAI</li>
-            <li><strong>Soft Skills:</strong> Mentorship, Team Leadership, Curriculum Development</li>
-        </ul>
-    </section>
+	<!-- Experience Section -->
+	<section id="experience">
+		<h2>Experience</h2>
+		<div class="experience-timeline">
+			<div class="experience-item">
+				<h3>Freelance Software Engineer</h3>
+				<p>🏢Freelancer 🗓️(Oct 2023 - Present) 📍Remote</p>
+				<p>• Designed RESTful APIs by Go/Gin and Python/Django</p>
+				<p>• Developed scalable microservices like a streaming service</p>
+				<p>• Implemented CI/CD pipelines, reducing deployment time</p>
+				<p>• Integrated secure authentication and third-party services</p>
+			</div>
+			<div class="experience-item">
+				<h3>Python/Django Mentor</h3>
+				<p>🏢Maktab Sharif 🗓️(Aug 2023 - Jun 2024) 📍Tehran, Iran</p>
+				<p>• Conducted Python and Django training sessions for diverse learners</p>
+				<p>• Provided mentorship and troubleshooting assistance</p>
+				<p>• Developed coding exercises and collaborated on curriculum improvements</p>
+			</div>
+			<div class="experience-item">
+				<h3>Python/Django Mentor</h3>
+				<p>🏢Quera 🗓️(Sep 2023 - Nov 2023) 📍Tehran, Iran</p>
+				<p>• Led inclusive Python and Django training sessions</p>
+				<p>• Offered personalized mentorship and coding support </p>
+				<p>• Created exercises to reinforce learning</p>
+				<p>• Contributed to curriculum improvements</p>
+			</div>
+			<div class="experience-item">
+				<h3>Senior Backend Developer</h3>
+				<p>🏢Azadfekri School 🗓️(Sep 2022 - Sep 2023) 📍Tehran, Iran</p>
+				<p>• Designed and implemented RESTful APIs and scalable backend systems</p>
+				<p>• Led development team to deliver projects within tight deadlines</p>
+				<p>• Optimized database queries for enhanced system performance</p>
+			</div>
+			<div class="experience-item">
+				<h3>Technical Backend Developer Expert</h3>
+				<p>🏢Golden Key 🗓️(Sep 2021 - Sep 2022) 📍Tehran, Iran</p>
+				<p>• Developed and maintained backend systems for multiple web applications</p>
+				<p>• Implemented RESTful APIs and optimized database performance</p>
+				<p>• Enhanced application speed by 20% through troubleshooting and optimization</p>
+			</div>
+			<div class="experience-item">
+				<h3>Python Backend Developer</h3>
+				<p>🏢Codenegar 🗓️(Apr 2021 - Aug 2021) 📍Tehran, Iran</p>
+				<p>• Implemented new functionality to improve user experience</p>
+				<p>• Resolved critical bugs, improving application stability</p>
+				<p>• Increased application speed by 20% through optimization techniques</p>
+			</div>
+			<div class="experience-item">
+				<h3>Python Backend Intern</h3>
+				<p>🏢Richedu 🗓️(Dec 2020 - Mar 2021) 📍Vancouver, British Columbia, Canada</p>
+				<p>• Developed Python code for data analysis and visualization</p>
+				<p>• Assisted in optimizing and testing Python applications</p>
+				<p>• Contributed to documentation and maintenance of codebases</p>
+			</div>
+			<!-- Add more experience items as needed -->
+		</div>
+	</section>
 
-    <section id="contact" class="container">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:great.kian2001@gmail.com">great.kian2001@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/amirkian-kiani" target="_blank">linkedin.com/in/amirkian-kiani</a></p>
-        <p>GitHub: <a href="https://github.com/DarkSnowJR" target="_blank">github.com/DarkSnowJR</a></p>
-    </section>
+	<!-- Contact Section -->
+	<section id="contact">
+		<h2>Contact</h2>
+		<form id="contactForm">
+			<input type="text" id="name" placeholder="Your Name" required>
+			<input type="email" id="email" placeholder="Your Email" required>
+			<textarea id="message" placeholder="Your Message" required></textarea>
+			<button type="submit">Send Message</button>
+		</form>
+	</section>
 
-    <footer>
-        <p>&copy; 2024 Amirkian Kiani. All Rights Reserved.</p>
-    </footer>
+	<!-- Footer -->
+	<footer>
+		<p>&copy; 2024 Amirkian Kiani. All rights reserved.</p>
+		<div class="social-links">
+			<img src="https://www.google.com/s2/favicons?domain=linkedin.com" alt="LinkedIn">
+			<a href="https://www.linkedin.com/in/amirkian-kiani" target="_blank">LinkedIn</a>
+			<img src="https://www.google.com/s2/favicons?domain=github.com" alt="GitHub">
+			<a href="https://github.com/DarkSnowJR" target="_blank">GitHub</a>
+			<img src="https://www.google.com/s2/favicons?domain=twitter.com" alt="Twitter">
+			<a href="https://twitter.com/amirkiankiani" target="_blank">X</a>
+		</div>
+	</footer>
 
-    <script src="script.js"></script>
+	<script src="scripts.js"></script>
 </body>
 </html>

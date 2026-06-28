@@ -1,1309 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Amirkian Kiani | Senior Software Engineer</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	<style>
-		:root {
-			--primary-color: #00d4ff;
-			--secondary-color: #ff6b6b;
-			--accent-color: #4ecdc4;
-			--bg-dark: #0a0a0a;
-			--bg-darker: #050505;
-			--bg-card: rgba(255, 255, 255, 0.05);
-			--text-primary: #ffffff;
-			--text-secondary: #b0b3b8;
-			--text-muted: #8b949e;
-			--border-color: rgba(255, 255, 255, 0.1);
-			--gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-			--gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-			--gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-			--shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-			--glow: 0 0 20px rgba(0, 212, 255, 0.3);
-		}
-
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
-
-		body {
-			font-family: 'Inter', sans-serif;
-			background: var(--bg-dark);
-			color: var(--text-primary);
-			line-height: 1.6;
-			overflow-x: hidden;
-		}
-
-		.mono {
-			font-family: 'JetBrains Mono', monospace;
-		}
-
-		/* Animated Background */
-		body::before {
-			content: '';
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: 
-				radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-				radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
-			z-index: -1;
-			animation: float 20s ease-in-out infinite;
-		}
-
-		@keyframes float {
-			0%, 100% { transform: translateY(0px); }
-			50% { transform: translateY(-20px); }
-		}
-
-		/* Header & Navigation */
-		header {
-			position: fixed;
-			top: 0;
-			width: 100%;
-			background: rgba(10, 10, 10, 0.95);
-			backdrop-filter: blur(20px);
-			border-bottom: 1px solid var(--border-color);
-			z-index: 1000;
-			padding: 1rem 2rem;
-		}
-
-		nav {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			max-width: 1200px;
-			margin: 0 auto;
-		}
-
-		.logo {
-			font-size: 1.5rem;
-			font-weight: 700;
-			background: var(--gradient-3);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			background-clip: text;
-		}
-
-		.nav-links {
-			list-style: none;
-			display: flex;
-			gap: 2rem;
-		}
-
-		.nav-links a {
-			color: var(--text-secondary);
-			text-decoration: none;
-			font-weight: 500;
-			transition: all 0.3s ease;
-			position: relative;
-		}
-
-		.nav-links a::after {
-			content: '';
-			position: absolute;
-			bottom: -5px;
-			left: 0;
-			width: 0;
-			height: 2px;
-			background: var(--primary-color);
-			transition: width 0.3s ease;
-		}
-
-		.nav-links a:hover {
-			color: var(--primary-color);
-		}
-
-		.nav-links a:hover::after {
-			width: 100%;
-		}
-
-		.btn {
-			background: var(--gradient-3);
-			color: var(--text-primary);
-			padding: 0.75rem 1.5rem;
-			text-decoration: none;
-			border-radius: 8px;
-			font-weight: 600;
-			transition: all 0.3s ease;
-			border: none;
-			cursor: pointer;
-			display: inline-flex;
-			align-items: center;
-			gap: 0.5rem;
-		}
-
-		.btn:hover {
-			transform: translateY(-2px);
-			box-shadow: var(--glow);
-		}
-
-		.btn i {
-			font-size: 0.9rem;
-		}
-
-		/* Mobile Navigation */
-		.mobile-menu {
-			display: none;
-			flex-direction: column;
-			cursor: pointer;
-		}
-
-		.mobile-menu span {
-			width: 25px;
-			height: 3px;
-			background: var(--text-primary);
-			margin: 3px 0;
-			transition: 0.3s;
-		}
-
-		@media (max-width: 768px) {
-			.nav-links {
-				display: none;
-			}
-			.mobile-menu {
-				display: flex;
-			}
-		}
-
-		/* Hero Section */
-		#hero {
-			min-height: 100vh;
-			display: flex;
-			align-items: center;
-			padding: 0 2rem;
-			position: relative;
-			margin-top: 80px;
-		}
-
-		.hero-container {
-			max-width: 1200px;
-			margin: 0 auto;
-			display: grid;
-			grid-template-columns: 1.2fr 0.8fr;
-			gap: 4rem;
-			align-items: center;
-			width: 100%;
-		}
-
-		.hero-content h1 {
-			font-size: clamp(2.5rem, 5vw, 4rem);
-			font-weight: 700;
-			margin-bottom: 1rem;
-			line-height: 1.2;
-		}
-
-		.terminal-window {
-			background: rgba(0, 0, 0, 0.8);
-			border-radius: 12px;
-			border: 1px solid var(--border-color);
-			overflow: hidden;
-			margin-bottom: 2rem;
-			box-shadow: var(--shadow);
-		}
-
-		.terminal-header {
-			background: rgba(255, 255, 255, 0.05);
-			padding: 0.75rem 1rem;
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
-		}
-
-		.terminal-dots {
-			display: flex;
-			gap: 0.5rem;
-		}
-
-		.dot {
-			width: 12px;
-			height: 12px;
-			border-radius: 50%;
-		}
-
-		.dot.red { background: #ff5f56; }
-		.dot.yellow { background: #ffbd2e; }
-		.dot.green { background: #27ca3f; }
-
-		.terminal-title {
-			margin-left: auto;
-			font-family: 'JetBrains Mono', monospace;
-			font-size: 0.8rem;
-			color: var(--text-muted);
-		}
-
-		.terminal-body {
-			padding: 1.5rem;
-			font-family: 'JetBrains Mono', monospace;
-			font-size: 0.9rem;
-			line-height: 1.6;
-		}
-
-		.command-line {
-			display: flex;
-			align-items: center;
-			margin-bottom: 0.5rem;
-		}
-
-		.prompt {
-			color: var(--primary-color);
-			margin-right: 0.5rem;
-		}
-
-		.typing-text {
-			color: var(--text-primary);
-		}
-
-		.cursor {
-			display: inline-block;
-			width: 2px;
-			height: 1em;
-			background: var(--primary-color);
-			margin-left: 2px;
-			animation: blink 1s infinite;
-		}
-
-		@keyframes blink {
-			0%, 50% { opacity: 1; }
-			51%, 100% { opacity: 0; }
-		}
-
-		.hero-stats {
-			display: flex;
-			gap: 2rem;
-			margin-top: 2rem;
-		}
-
-		.stat-item {
-			text-align: center;
-		}
-
-		.stat-number {
-			font-size: 2rem;
-			font-weight: 700;
-			color: var(--primary-color);
-			display: block;
-		}
-
-		.stat-label {
-			font-size: 0.9rem;
-			color: var(--text-muted);
-		}
-
-		.hero-image {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			position: relative;
-		}
-
-		.hero-image::before {
-			content: '';
-			position: absolute;
-			width: 120%;
-			height: 120%;
-			background: var(--gradient-3);
-			border-radius: 50%;
-			filter: blur(20px);
-			opacity: 0.3;
-			animation: pulse 2s ease-in-out infinite alternate;
-		}
-
-		@keyframes pulse {
-			from { transform: scale(0.95); }
-			to { transform: scale(1.05); }
-		}
-
-		.hero-image img {
-			width: 300px;
-			height: 300px;
-			object-fit: cover;
-			border-radius: 50%;
-			border: 4px solid var(--primary-color);
-			position: relative;
-			z-index: 1;
-			box-shadow: var(--shadow);
-		}
-
-		@media (max-width: 768px) {
-			.hero-container {
-				grid-template-columns: 1fr;
-				gap: 2rem;
-				text-align: center;
-			}
-			
-			.hero-image img {
-				width: 200px;
-				height: 200px;
-			}
-
-			.hero-stats {
-				justify-content: center;
-			}
-		}
-
-
-		/* General Section Styles */
-		section {
-			padding: 5rem 2rem;
-			max-width: 1200px;
-			margin: 0 auto;
-		}
-
-		h2 {
-			font-size: clamp(2rem, 4vw, 3rem);
-			text-align: center;
-			margin-bottom: 3rem;
-			position: relative;
-			color: var(--text-primary);
-		}
-
-		h2::after {
-			content: '';
-			position: absolute;
-			bottom: -10px;
-			left: 50%;
-			transform: translateX(-50%);
-			width: 60px;
-			height: 4px;
-			background: var(--gradient-3);
-			border-radius: 2px;
-		}
-
-		/* About Section */
-		.about-content {
-			background: var(--bg-card);
-			backdrop-filter: blur(20px);
-			border: 1px solid var(--border-color);
-			border-radius: 20px;
-			padding: 3rem;
-			box-shadow: var(--shadow);
-			transition: transform 0.3s ease;
-		}
-
-		.about-content:hover {
-			transform: translateY(-5px);
-		}
-
-		.about-content p {
-			font-size: 1.1rem;
-			line-height: 1.8;
-			color: var(--text-secondary);
-			text-align: center;
-			max-width: 800px;
-			margin: 0 auto;
-		}
-
-		/* Skills Section */
-		.skills-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-			gap: 1.5rem;
-		}
-
-		.skill {
-			background: var(--bg-card);
-			backdrop-filter: blur(20px);
-			border: 1px solid var(--border-color);
-			border-radius: 16px;
-			padding: 1.5rem;
-			text-align: center;
-			transition: all 0.3s ease;
-			position: relative;
-			overflow: hidden;
-		}
-
-		.skill::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 3px;
-			background: var(--gradient-3);
-			transform: scaleX(0);
-			transition: transform 0.3s ease;
-		}
-
-		.skill:hover {
-			transform: translateY(-5px);
-			box-shadow: var(--glow);
-		}
-
-		.skill:hover::before {
-			transform: scaleX(1);
-		}
-
-		.skill img {
-			width: 60px !important;
-			height: 60px !important;
-			margin-bottom: 1rem;
-			filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-			transition: transform 0.3s ease;
-		}
-
-		.skill:hover img {
-			transform: scale(1.1);
-		}
-
-		.skill p {
-			color: var(--text-primary);
-			font-weight: 600;
-			font-size: 0.9rem;
-		}
-
-		/* Projects Section */
-		.projects-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-			gap: 2rem;
-		}
-
-		.project-card {
-			background: var(--bg-card);
-			backdrop-filter: blur(20px);
-			border: 1px solid var(--border-color);
-			border-radius: 20px;
-			overflow: hidden;
-			transition: all 0.3s ease;
-			position: relative;
-		}
-
-		.project-card::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background: var(--gradient-1);
-			opacity: 0;
-			transition: opacity 0.3s ease;
-			z-index: 0;
-		}
-
-		.project-card:hover {
-			transform: translateY(-10px);
-			box-shadow: var(--shadow);
-		}
-
-		.project-card:hover::before {
-			opacity: 0.1;
-		}
-
-		.project-card > * {
-			position: relative;
-			z-index: 1;
-		}
-
-		.project-card img {
-			width: 100%;
-			height: 200px;
-			object-fit: cover;
-			transition: transform 0.3s ease;
-		}
-
-		.project-card:hover img {
-			transform: scale(1.05);
-		}
-
-		.project-info {
-			padding: 1.5rem;
-		}
-
-		.project-info h3 {
-			color: var(--text-primary);
-			margin-bottom: 0.5rem;
-			font-size: 1.3rem;
-		}
-
-		.project-info p {
-			color: var(--text-secondary);
-			line-height: 1.6;
-			margin-bottom: 1rem;
-		}
-
-		.project-info a {
-			color: var(--primary-color);
-			text-decoration: none;
-			font-weight: 600;
-			transition: color 0.3s ease;
-		}
-
-		.project-info a:hover {
-			color: var(--secondary-color);
-		}
-
-		/* Experience Section */
-		.experience-timeline {
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-			gap: 2rem;
-		}
-
-		.experience-item {
-			background: var(--bg-card);
-			backdrop-filter: blur(20px);
-			border: 1px solid var(--border-color);
-			border-radius: 16px;
-			padding: 2rem;
-			position: relative;
-			transition: all 0.3s ease;
-		}
-
-		.experience-item::before {
-			content: '';
-			position: absolute;
-			left: -3px;
-			top: 0;
-			bottom: 0;
-			width: 4px;
-			background: var(--gradient-3);
-			border-radius: 2px;
-		}
-
-		.experience-item:hover {
-			transform: translateX(10px);
-			box-shadow: var(--shadow);
-		}
-
-		.experience-item h3 {
-			color: var(--primary-color);
-			margin-bottom: 0.5rem;
-			font-size: 1.3rem;
-		}
-
-		.experience-item p {
-			color: var(--text-secondary);
-			margin-bottom: 0.5rem;
-			line-height: 1.6;
-		}
-
-		/* Contact Form */
-		form {
-			background: var(--bg-card);
-			backdrop-filter: blur(20px);
-			border: 1px solid var(--border-color);
-			border-radius: 20px;
-			padding: 2rem;
-			max-width: 600px;
-			margin: 0 auto;
-			box-shadow: var(--shadow);
-		}
-
-		form input,
-		form textarea {
-			width: 100%;
-			padding: 1rem;
-			margin-bottom: 1.5rem;
-			background: rgba(255, 255, 255, 0.05);
-			border: 1px solid var(--border-color);
-			border-radius: 12px;
-			color: var(--text-primary);
-			font-family: inherit;
-			font-size: 1rem;
-			transition: all 0.3s ease;
-		}
-
-		form input:focus,
-		form textarea:focus {
-			outline: none;
-			border-color: var(--primary-color);
-			box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
-		}
-
-		form input::placeholder,
-		form textarea::placeholder {
-			color: var(--text-muted);
-		}
-
-		form textarea {
-			min-height: 120px;
-			resize: vertical;
-		}
-
-		form button {
-			width: 100%;
-			padding: 1rem;
-			background: var(--gradient-3);
-			border: none;
-			border-radius: 12px;
-			color: var(--text-primary);
-			font-family: inherit;
-			font-size: 1rem;
-			font-weight: 600;
-			cursor: pointer;
-			transition: all 0.3s ease;
-		}
-
-		form button:hover {
-			transform: translateY(-2px);
-			box-shadow: var(--glow);
-		}
-
-		/* Footer */
-		footer {
-			background: var(--bg-darker);
-			border-top: 1px solid var(--border-color);
-			padding: 3rem 2rem 1rem;
-			text-align: center;
-			margin-top: 5rem;
-		}
-
-		.social-links {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			gap: 2rem;
-			margin-bottom: 2rem;
-		}
-
-		.social-links a {
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
-			color: var(--text-secondary);
-			text-decoration: none;
-			transition: all 0.3s ease;
-			padding: 0.5rem 1rem;
-			border-radius: 8px;
-		}
-
-		.social-links a:hover {
-			color: var(--primary-color);
-			background: var(--bg-card);
-			transform: translateY(-2px);
-		}
-
-		.social-links img {
-			width: 20px !important;
-			height: 20px !important;
-		}
-
-		footer p {
-			color: var(--text-muted);
-			font-size: 0.9rem;
-		}
-
-		/* Scroll to top button */
-		.scroll-top {
-			position: fixed;
-			bottom: 2rem;
-			right: 2rem;
-			width: 50px;
-			height: 50px;
-			background: var(--gradient-3);
-			border: none;
-			border-radius: 50%;
-			color: var(--text-primary);
-			cursor: pointer;
-			transition: all 0.3s ease;
-			opacity: 0;
-			visibility: hidden;
-			z-index: 1000;
-		}
-
-		.scroll-top.visible {
-			opacity: 1;
-			visibility: visible;
-		}
-
-		.scroll-top:hover {
-			transform: translateY(-2px);
-			box-shadow: var(--glow);
-		}
-
-		/* Responsive Design */
-		@media (max-width: 768px) {
-			section {
-				padding: 3rem 1rem;
-			}
-
-			.skills-grid {
-				grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-				gap: 1rem;
-			}
-
-			.projects-grid {
-				grid-template-columns: 1fr;
-			}
-
-			.experience-timeline {
-				grid-template-columns: 1fr;
-			}
-
-			.social-links {
-				flex-wrap: wrap;
-				gap: 1rem;
-			}
-
-			.hero-stats {
-				flex-direction: column;
-				gap: 1rem;
-			}
-		}
-
-		/* Loading animation */
-		.fade-in {
-			opacity: 0;
-			transform: translateY(30px);
-			transition: all 0.6s ease;
-		}
-
-		.fade-in.visible {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Amirkian Kiani is a senior software engineer focused on scalable backend systems, APIs, streaming platforms, and production reliability.">
+  <title>Amirkian Kiani | Backend Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<!-- Header -->
-	<header>
-		<nav>
-			<div class="logo mono">~/amirkian-kiani</div>
-			<ul class="nav-links">
-				<li><a href="#about">About</a></li>
-				<li><a href="#skills">Skills</a></li>
-				<li><a href="#projects">Projects</a></li>
-				<li><a href="#experience">Experience</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-			<a href="src/Amirkian-Resume.pdf" class="btn">
-				<i class="fas fa-download"></i>
-				Download Resume
-			</a>
-			<div class="mobile-menu">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-		</nav>
-	</header>
+  <header class="site-header" data-header>
+    <nav class="nav-shell" aria-label="Primary navigation">
+      <a class="brand mono" href="#hero" aria-label="Go to top">
+        <span class="brand-mark">AK</span>
+        <span>command-center</span>
+      </a>
+      <div class="nav-links" data-nav-links>
+        <a href="#about">Profile</a>
+        <a href="#skills">Stack</a>
+        <a href="#projects">Services</a>
+        <a href="#experience">Timeline</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-action" href="src/Amirkian-Resume.pdf">
+        <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+        Resume
+      </a>
+    </nav>
+  </header>
 
-	<!-- Hero Section -->
-	<section id="hero">
-		<div class="hero-container">
-			<div class="hero-content">
-				<div class="terminal-window">
-					<div class="terminal-header">
-						<div class="terminal-dots">
-							<div class="dot red"></div>
-							<div class="dot yellow"></div>
-							<div class="dot green"></div>
-						</div>
-						<div class="terminal-title">amirkian@portfolio:~$</div>
-					</div>
-					<div class="terminal-body">
-						<div class="command-line">
-							<span class="prompt">$</span>
-							<span class="typing-text" id="typing-text"></span>
-							<span class="cursor" id="cursor"></span>
-						</div>
-						<div class="mono" style="color: var(--text-secondary); margin-top: 1rem;">
-							→ Senior Software Engineer<br>
-							→ 7+ Years Experience<br>
-							→ Backend Architecture Expert<br>
-							→ Python | Go | JavaScript
-						</div>
-					</div>
-				</div>
-				
-				<div class="hero-stats">
-					<div class="stat-item">
-						<span class="stat-number">20+</span>
-						<span class="stat-label">Projects</span>
-					</div>
-					<div class="stat-item">
-						<span class="stat-number">7+</span>
-						<span class="stat-label">Years</span>
-					</div>
-					<div class="stat-item">
-						<a href="https://www.buymeacoffee.com/amirkiankiani" target="_blank" style="text-decoration: none; color: inherit;">
-							<span class="stat-number">☕</span>
-							<span class="stat-label">Buy Me Coffee</span>
-						</a>
-					</div>
-				</div>
-				
-				<a href="#contact" class="btn" style="margin-top: 2rem;">
-					<i class="fas fa-rocket"></i>
-					Let's Build Something Amazing
-				</a>
-			</div>
-			<div class="hero-image">
-				<img src="src/images/profile-image.jpeg" alt="Amirkian Kiani" loading="lazy">
-			</div>
-		</div>
-	</section>
+  <main>
+    <section id="hero" class="hero section-observed">
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow mono">production profile / senior software engineer</p>
+          <h1>Backend systems that stay readable under pressure.</h1>
+          <p class="hero-summary">
+            I am Amirkian Kiani, a senior software engineer building scalable APIs,
+            streaming platforms, data-heavy workflows, and reliable backend services
+            across Python, Go, Odoo, and modern cloud tooling.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="#projects">
+              <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+              View Service Registry
+            </a>
+            <a class="button button-secondary" href="#contact">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+              Open Connection
+            </a>
+          </div>
 
-	<!-- About Section -->
-	<section id="about" class="fade-in">
-		<h2><i class="fas fa-user-code"></i> About Me</h2>
-		<div class="about-content">
-			<p>
-				I am a highly experienced <strong>backend developer</strong> with a proven track record of delivering high-performance,
-				content-rich websites using modern technologies. Over the past <strong>seven years</strong>, I have developed scalable
-				solutions that consistently meet and exceed performance and efficiency standards.
-			</p>
-			<br>
-			<p>
-				My strong adaptability, excellent communication skills, and team-oriented approach have allowed me to
-				thrive in fast-paced environments and work effectively with diverse stakeholders.
-				Whether it's implementing robust architectures, optimizing database queries, or integrating APIs,
-				I am passionate about delivering quality solutions that <strong>exceed expectations</strong>.
-			</p>
-		</div>
-	</section>
+          <div class="command-terminal" aria-label="Interactive command terminal">
+            <div class="terminal-topline">
+              <span class="terminal-dot is-red"></span>
+              <span class="terminal-dot is-amber"></span>
+              <span class="terminal-dot is-green"></span>
+              <span class="terminal-title mono">amirkian@portfolio:~</span>
+            </div>
+            <div class="command-row">
+              <span class="prompt mono">$</span>
+              <output class="command-output mono" id="commandOutput">system profile online. choose a command.</output>
+            </div>
+            <div class="command-list" aria-label="Terminal commands">
+              <button class="command-chip mono" type="button" data-command="whoami">whoami</button>
+              <button class="command-chip mono" type="button" data-command="stack">stack</button>
+              <button class="command-chip mono" type="button" data-command="projects">projects</button>
+              <button class="command-chip mono" type="button" data-command="contact">contact</button>
+            </div>
+          </div>
+        </div>
 
-	<!-- Skills Section -->
-	<section id="skills" class="fade-in">
-		<h2><i class="fas fa-code"></i> Tech Stack</h2>
-		<div class="skills-grid">
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" style="width: 80px;" />
-				<p>Python</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg" style="width: 80px;" alt="Go" />
-				<p>Go</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" style="width: 80px;" alt="JavaScript" />
-				<p>JavaScript</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg" style="width: 80px;" alt="Swift" />
-				<p>Swift</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg" style="width: 80px;" alt="Dart" />
-				<p>Dart</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain-wordmark.svg" style="width: 80px;" alt="Django" />
-				<p>Django</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg" style="width: 80px;" alt="Flask" />
-				<p>Flask</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original-wordmark.svg" style="width: 80px;" alt="FastAPI" />
-				<p>FastAPI</p>
-			</div>
-			<div class="skill">
-				<img src="src/images/Gin Framework.svg" style="width: 80px;" alt="Gin" />
-				<p>Gin</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original-wordmark.svg" style="width: 80px;" alt="Next.js" />
-				<p>Next.js</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg" style="width: 80px;" alt="Docker" />
-				<p>Docker</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original-wordmark.svg" style="width: 80px;" alt="Redis" />
-				<p>Redis</p>
-			</div>
-			<div class="skill">
-				<img src="src/images/celery--logo.svg" style="width: 80px;" alt="Celery" />
-				<p>Celery</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg" style="width: 80px;" alt="PostgreSQL" />
-				<p>PostgreSQL</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mariadb/mariadb-original-wordmark.svg" style="width: 80px;" alt="Mariadb" />
-				<p>Mariadb</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" style="width: 80px;" alt="Nginx" />
-				<p>Nginx</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original-wordmark.svg" style="width: 80px;" alt="Kubernetes" />
-				<p>Kubernetes</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" style="width: 80px;" alt="Node.js" />
-				<p>Node.js</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg" style="width: 80px;" alt="ReactJS" />
-				<p>ReactJS</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original-wordmark.svg" style="width: 80px;" alt="SwiftUI" />
-				<p>SwiftUI</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" style="width: 80px;" alt="Flutter" />
-				<p>Flutter</p>
-			</div>
-			<div class="skill">
-				<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" style="width: 80px;" alt="Git" />
-				<p>Git</p>
-			</div>
-			<div class="skill">
-				<img src="src/images/icons8-ffmpeg.svg" style="width: 80px;" alt="FFmpeg" />
-				<p>FFmpeg</p>
-			</div>
-			<div class="skill">
-				<img src="src/images/icons8-chatgpt.svg" style="width: 80px;" alt="OpenAI API" />
-				<p>OpenAI API</p>
-			</div>
-		</div>
-	</section>
+        <aside class="ops-dashboard" aria-label="Live system overview">
+          <div class="dashboard-header">
+            <div>
+              <p class="panel-kicker mono">live system overview</p>
+              <h2>Backend Command Center</h2>
+            </div>
+            <span class="status-pill status-green">Operational</span>
+          </div>
 
-	<!-- Projects Section -->
-	<section id="projects" class="fade-in">
-		<h2><i class="fas fa-laptop-code"></i> Featured Projects</h2>
-		<div class="projects-grid">
-			<div class="project-card">
-				<img src="https://www.google.com/s2/favicons?sz=64&domain=itunes.ir" alt="iTunes Project">
-				<div class="project-info">
-					<h3>iTunes</h3>
-					<p>Music platform for listening, downloading, and purchasing music.</p>
-					<a href="https://itunes.ir" target="_blank">View Project</a>
-				</div>
-			</div>
-			<div class="project-card">
-				<img src="https://www.google.com/s2/favicons?sz=64&domain=chaargoosh.com" alt="ChaarGoosh Project">
-				<div class="project-info">
-					<h3>ChaarGoosh</h3>
-					<p>Platform for audiobooks, podcasts, and book packs.</p>
-					<a href="https://chaargoosh.com" target="_blank">View Project</a>
-				</div>
-			</div>
-			<div class="project-card">
-				<img src="https://www.google.com/s2/favicons?sz=64&domain=baazigooshi.com" alt="Baazigooshi Project">
-				<div class="project-info">
-					<h3>Baazigooshi</h3>
-					<p> A web based gaming platform with many B2B Projects for <a href="https://namava.ir" target="_blank">Namava</a>, <a href="https://digikala.com" target="_blank">Digikala</a> and <a href="https://zarebin.ir" target="_blank">Zarebin</a>.</p>
-					<a href="https://baazigooshi.com" target="_blank">View Project</a>
-				</div>
-			</div>
-			<div class="project-card">
-				<img src="https://www.google.com/s2/favicons?sz=64&domain=vidaneh.com" alt="Vidaneh Project">
-				<div class="project-info">
-					<h3>Vidaneh</h3>
-					<p> A video sharing and streaming platform for sharing and streaming videos.</p>
-					<a href="https://vidaneh.com" target="_blank">View Project</a>
-				</div>
-			</div>
-			<div class="project-card">
-				<img src="https://www.google.com/s2/favicons?sz=64&domain=azad.im" alt="Azad Project">
-				<div class="project-info">
-					<h3>Azad</h3>
-					<p>Social media application for sharing thoughts and ideas.</p>
-					<a href="https://azad.im" target="_blank">View Project</a>
-				</div>
-			</div>
-			<div class="project-card">
-				<img src="https://www.google.com/s2/favicons?sz=64&domain=iqbalforum.org" alt="Iqbal Forum Project">
-				<div class="project-info">
-					<h3>Iqbal Forum</h3>
-					<p>News and magazine website for sharing news between iran and pakistan.</p>
-					<a href="https://iqbalforum.org" target="_blank">View Project</a>
-				</div>
-			</div>
-			<div class="project-card">
-				<img src="https://www.google.com/s2/favicons?sz=64&domain=gardima.ir" alt="Gardima Project">
-				<div class="project-info">
-					<h3>Gardima</h3>
-					<p>A website developed for buying tickets and reserve hotels.</p>
-					<a href="https://gardima.ir" target="_blank">View Project</a>
-				</div>
-			</div>
-			<!-- Add more project cards as needed -->
-		</div>
-	</section>
+          <div class="profile-node">
+            <img src="src/images/profile-image.jpeg" alt="Portrait of Amirkian Kiani">
+            <div>
+              <strong>Amirkian Kiani</strong>
+              <span>Senior Software Engineer</span>
+            </div>
+          </div>
 
-	<!-- Experience Section -->
-	<section id="experience" class="fade-in">
-		<h2><i class="fas fa-briefcase"></i> Professional Journey</h2>
-		<div class="experience-timeline">
-			<div class="experience-item">
-				<h3>Senior Software Engineer</h3>
-				<p>🏢Faraatar Entrepreneurship Group</p>
-				<p>🗓️(Oct 2024 - Present)</p>
-				<p>📍Tehran, Iran</p>
-				<p>• Senior Software Engineer specializing in backend development with Python and Odoo</p>
-				<p>• Experienced in designing, building, and maintaining scalable web applications</p>
-				<p>• Proficient in API integration, performance optimization, and ensuring seamless user experiences</p>
-				<p>• Skilled in cross-functional collaboration to deliver high-quality software solutions</p>
-			</div>
-			<div class="experience-item">
-				<h3>Freelance Software Engineer</h3>
-				<p>🏢Freelancer</p>
-				<p>🗓️(Oct 2023 - Aug 2024)</p>
-				<p>📍Remote</p>
-				<p>• Designed RESTful APIs by Go/Gin and Python/Django</p>
-				<p>• Developed scalable microservices like a streaming service</p>
-				<p>• Implemented CI/CD pipelines, reducing deployment time</p>
-				<p>• Integrated secure authentication and third-party services</p>
-			</div>
-			<div class="experience-item">
-				<h3>Python/Django Mentor</h3>
-				<p>🏢Maktab Sharif</p>
-				<p>🗓️(Aug 2023 - Jun 2024)</p>
-				<p>📍Tehran, Iran</p>
-				<p>• Conducted Python and Django training sessions for diverse learners</p>
-				<p>• Provided mentorship and troubleshooting assistance</p>
-				<p>• Developed coding exercises and collaborated on curriculum improvements</p>
-			</div>
-			<div class="experience-item">
-				<h3>Python/Django Mentor</h3>
-				<p>🏢Quera</p>
-				<p>🗓️(Sep 2023 - Nov 2023)</p>
-				<p>📍Tehran, Iran</p>
-				<p>• Led inclusive Python and Django training sessions</p>
-				<p>• Offered personalized mentorship and coding support </p>
-				<p>• Created exercises to reinforce learning</p>
-				<p>• Contributed to curriculum improvements</p>
-			</div>
-			<div class="experience-item">
-				<h3>Senior Backend Developer</h3>
-				<p>🏢Azadfekri School</p>
-				<p>🗓️(Sep 2022 - Sep 2023)</p>
-				<p>📍Tehran, Iran</p>
-				<p>• Designed and implemented RESTful APIs and scalable backend systems</p>
-				<p>• Led development team to deliver projects within tight deadlines</p>
-				<p>• Optimized database queries for enhanced system performance</p>
-			</div>
-			<div class="experience-item">
-				<h3>Technical Backend Developer Expert</h3>
-				<p>🏢Golden Key</p>
-				<p>🗓️(Sep 2021 - Sep 2022)</p>
-				<p>📍Tehran, Iran</p>
-				<p>• Developed and maintained backend systems for multiple web applications</p>
-				<p>• Implemented RESTful APIs and optimized database performance</p>
-				<p>• Enhanced application speed by 20% through troubleshooting and optimization</p>
-			</div>
-			<div class="experience-item">
-				<h3>Python Backend Developer</h3>
-				<p>🏢Codenegar</p>
-				<p>🗓️(Apr 2021 - Aug 2021)</p>
-				<p>📍Tehran, Iran</p>
-				<p>• Implemented new functionality to improve user experience</p>
-				<p>• Resolved critical bugs, improving application stability</p>
-				<p>• Increased application speed by 20% through optimization techniques</p>
-			</div>
-			<div class="experience-item">
-				<h3>Python Backend Intern</h3>
-				<p>🏢Richedu</p>
-				<p>🗓️(Dec 2020 - Mar 2021)</p>
-				<p>📍Vancouver, British Columbia, Canada</p>
-				<p>• Developed Python code for data analysis and visualization</p>
-				<p>• Assisted in optimizing and testing Python applications</p>
-				<p>• Contributed to documentation and maintenance of codebases</p>
-			</div>
-			<!-- Add more experience items as needed -->
-		</div>
-	</section>
+          <div class="status-grid">
+            <article class="metric-card" data-metric="latency">
+              <span class="metric-label mono">api.latency</span>
+              <strong><span data-metric-value="latency">42</span>ms</strong>
+              <small>optimized request paths</small>
+            </article>
+            <article class="metric-card" data-metric="uptime">
+              <span class="metric-label mono">system.uptime</span>
+              <strong><span data-metric-value="uptime">99.9</span>%</strong>
+              <small>reliability mindset</small>
+            </article>
+            <article class="metric-card" data-metric="throughput">
+              <span class="metric-label mono">queue.flow</span>
+              <strong><span data-metric-value="throughput">18k</span></strong>
+              <small>jobs processed</small>
+            </article>
+            <article class="metric-card" data-metric="coverage">
+              <span class="metric-label mono">scope.years</span>
+              <strong>10+</strong>
+              <small>years shipped</small>
+            </article>
+          </div>
 
-	<!-- Contact Section -->
-	<section id="contact" class="fade-in">
-		<h2><i class="fas fa-paper-plane"></i> Let's Connect</h2>
-		<form id="contactForm">
-			<input type="text" id="name" placeholder="Your Name" required>
-			<input type="email" id="email" placeholder="Your Email" required>
-			<textarea id="message" placeholder="Your Message" required></textarea>
-			<button type="submit">
-				<i class="fas fa-rocket"></i>
-				Send Message
-			</button>
-		</form>
-	</section>
+          <div class="architecture-map" aria-label="Architecture map">
+            <div class="arch-node node-api">API Gateway</div>
+            <div class="arch-node node-worker">Workers</div>
+            <div class="arch-node node-data">Data Layer</div>
+            <div class="arch-node node-client">Client Apps</div>
+            <span class="arch-line line-a"></span>
+            <span class="arch-line line-b"></span>
+            <span class="arch-line line-c"></span>
+          </div>
 
-	<!-- Footer -->
-	<footer>
-		<div class="social-links">
-			<a href="https://www.linkedin.com/in/amirkian-kiani" target="_blank">
-				<img src="https://www.google.com/s2/favicons?domain=linkedin.com" alt="LinkedIn">
-				LinkedIn
-			</a>
-			<a href="https://github.com/blizzardpy" target="_blank">
-				<img src="https://www.google.com/s2/favicons?domain=github.com" alt="GitHub">
-				GitHub
-			</a>
-			<a href="https://twitter.com/amirkiankiani" target="_blank">
-				<img src="https://www.google.com/s2/favicons?domain=twitter.com" alt="Twitter">
-				X (Twitter)
-			</a>
-		</div>
-		<p>&copy; 2025 Amirkian Kiani. Crafted with <span style="color: var(--secondary-color);">❤️</span> and lots of <span style="color: var(--primary-color);">☕</span></p>
-	</footer>
+          <div class="event-log" aria-live="polite">
+            <div class="event-log-header">
+              <span class="mono">event.stream</span>
+              <span class="status-dot"></span>
+            </div>
+            <div class="event-list" id="eventLog">
+              <p><span>07:42</span> portfolio service initialized</p>
+              <p><span>07:43</span> project registry synchronized</p>
+              <p><span>07:44</span> contact channel standing by</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-	<!-- Scroll to top button -->
-	<button class="scroll-top" id="scrollTop">
-		<i class="fas fa-arrow-up"></i>
-	</button>
+    <section id="about" class="section section-observed">
+      <div class="section-header">
+        <p class="section-kicker mono">engineer profile</p>
+        <h2 class="section-heading">A backend operator with product sense.</h2>
+      </div>
+      <div class="profile-grid">
+        <article class="panel profile-panel">
+          <span class="panel-icon"><i class="fa-solid fa-server" aria-hidden="true"></i></span>
+          <h3>Core focus</h3>
+          <p>Backend architecture, API design, data flows, Odoo systems, streaming services, and performance-sensitive web platforms.</p>
+        </article>
+        <article class="panel profile-panel">
+          <span class="panel-icon"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></span>
+          <h3>Systems I build</h3>
+          <p>Content platforms, B2B services, media workflows, mobile-backed APIs, integrations, and internal tools that need to survive real usage.</p>
+        </article>
+        <article class="panel profile-panel">
+          <span class="panel-icon"><i class="fa-solid fa-code-branch" aria-hidden="true"></i></span>
+          <h3>Working style</h3>
+          <p>Clear interfaces, measurable behavior, pragmatic delivery, and close collaboration with product, operations, and engineering teams.</p>
+        </article>
+        <article class="panel profile-panel">
+          <span class="panel-icon"><i class="fa-solid fa-signal" aria-hidden="true"></i></span>
+          <h3>Current signal</h3>
+          <p>Senior Software Engineer at Faraatar Entrepreneurship Group, focused on backend development with Python and Odoo.</p>
+        </article>
+      </div>
+    </section>
 
-	<script>
-		// Typing animation for terminal
-		const commands = [
-			'whoami',
-			'cat skills.txt',
-			'ls projects/',
-			'git status',
-			'python --version'
-		];
-		
-		let currentCommand = 0;
-		let currentChar = 0;
-		let isDeleting = false;
-		
-		function typeCommand() {
-			const typingElement = document.getElementById('typing-text');
-			const currentText = commands[currentCommand];
-			
-			if (!isDeleting) {
-				typingElement.textContent = currentText.substring(0, currentChar + 1);
-				currentChar++;
-				
-				if (currentChar === currentText.length) {
-					setTimeout(() => isDeleting = true, 2000);
-				}
-			} else {
-				typingElement.textContent = currentText.substring(0, currentChar - 1);
-				currentChar--;
-				
-				if (currentChar === 0) {
-					isDeleting = false;
-					currentCommand = (currentCommand + 1) % commands.length;
-				}
-			}
-			
-			const speed = isDeleting ? 50 : 100;
-			setTimeout(typeCommand, speed);
-		}
-		
-		// Start typing animation when page loads
-		window.addEventListener('load', () => {
-			setTimeout(typeCommand, 1000);
-		});
-		
-		// Scroll animations
-		function animateOnScroll() {
-			const elements = document.querySelectorAll('.fade-in');
-			
-			elements.forEach(element => {
-				const elementTop = element.getBoundingClientRect().top;
-				const windowHeight = window.innerHeight;
-				
-				if (elementTop < windowHeight - 100) {
-					element.classList.add('visible');
-				}
-			});
-		}
-		
-		window.addEventListener('scroll', animateOnScroll);
-		window.addEventListener('load', animateOnScroll);
-		
-		// Scroll to top button
-		const scrollTopBtn = document.getElementById('scrollTop');
-		
-		window.addEventListener('scroll', () => {
-			if (window.pageYOffset > 300) {
-				scrollTopBtn.classList.add('visible');
-			} else {
-				scrollTopBtn.classList.remove('visible');
-			}
-		});
-		
-		scrollTopBtn.addEventListener('click', () => {
-			window.scrollTo({
-				top: 0,
-				behavior: 'smooth'
-			});
-		});
-		
-		// Smooth scrolling for navigation links
-		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-			anchor.addEventListener('click', function (e) {
-				e.preventDefault();
-				const target = document.querySelector(this.getAttribute('href'));
-				if (target) {
-					target.scrollIntoView({
-						behavior: 'smooth',
-						block: 'start'
-					});
-				}
-			});
-		});
-		
-		// Contact form submission
-		document.getElementById('contactForm').addEventListener('submit', function (event) {
-			event.preventDefault();
-			
-			// Get form data
-			const name = document.getElementById('name').value;
-			const email = document.getElementById('email').value;
-			const message = document.getElementById('message').value;
-			
-			// Simple validation
-			if (!name || !email || !message) {
-				alert('Please fill in all fields');
-				return;
-			}
-			
-			// Create mailto link as fallback
-			const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-			const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-			const mailtoLink = `mailto:amirkiankiani@gmail.com?subject=${subject}&body=${body}`;
-			
-			// Try to open email client
-			window.location.href = mailtoLink;
-			
-			// Show success message
-			alert('Thank you for your message! Your email client should open now.');
-			
-			// Reset form
-			this.reset();
-		});
-		
-		// Add some interactive particles (optional enhancement)
-		function createParticles() {
-			const particles = document.createElement('div');
-			particles.style.position = 'fixed';
-			particles.style.top = '0';
-			particles.style.left = '0';
-			particles.style.width = '100%';
-			particles.style.height = '100%';
-			particles.style.pointerEvents = 'none';
-			particles.style.zIndex = '-1';
-			document.body.appendChild(particles);
-			
-			for (let i = 0; i < 50; i++) {
-				const particle = document.createElement('div');
-				particle.style.position = 'absolute';
-				particle.style.width = '2px';
-				particle.style.height = '2px';
-				particle.style.background = 'rgba(0, 212, 255, 0.3)';
-				particle.style.borderRadius = '50%';
-				particle.style.left = Math.random() * 100 + '%';
-				particle.style.top = Math.random() * 100 + '%';
-				particle.style.animation = `float ${3 + Math.random() * 4}s ease-in-out infinite`;
-				particle.style.animationDelay = Math.random() * 2 + 's';
-				particles.appendChild(particle);
-			}
-		}
-		
-		// Initialize particles on load
-		window.addEventListener('load', createParticles);
-	</script>
+    <section id="skills" class="section section-observed">
+      <div class="section-header">
+        <p class="section-kicker mono">infrastructure map</p>
+        <h2 class="section-heading">The stack is grouped by how systems actually run.</h2>
+      </div>
+      <div class="stack-map">
+        <article class="panel stack-group" data-stack-group="backend">
+          <h3>Backend</h3>
+          <div class="skill-cloud">
+            <span>Python</span>
+            <span>Go</span>
+            <span>Django</span>
+            <span>FastAPI</span>
+            <span>Flask</span>
+            <span>Gin</span>
+            <span>Node.js</span>
+            <span>Odoo</span>
+          </div>
+        </article>
+        <article class="panel stack-group" data-stack-group="data">
+          <h3>Data</h3>
+          <div class="skill-cloud">
+            <span>PostgreSQL</span>
+            <span>MariaDB</span>
+            <span>Redis</span>
+            <span>Celery</span>
+            <span>Query Optimization</span>
+          </div>
+        </article>
+        <article class="panel stack-group" data-stack-group="infra">
+          <h3>Infrastructure</h3>
+          <div class="skill-cloud">
+            <span>Docker</span>
+            <span>Kubernetes</span>
+            <span>Nginx</span>
+            <span>CI/CD</span>
+            <span>Linux</span>
+          </div>
+        </article>
+        <article class="panel stack-group" data-stack-group="apps">
+          <h3>Frontend and Mobile</h3>
+          <div class="skill-cloud">
+            <span>JavaScript</span>
+            <span>React</span>
+            <span>Next.js</span>
+            <span>Swift</span>
+            <span>SwiftUI</span>
+            <span>Dart</span>
+            <span>Flutter</span>
+          </div>
+        </article>
+        <article class="panel stack-group" data-stack-group="tooling">
+          <h3>AI and Media Tooling</h3>
+          <div class="skill-cloud">
+            <span>OpenAI API</span>
+            <span>FFmpeg</span>
+            <span>Automation</span>
+            <span>Integrations</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-observed">
+      <div class="section-header">
+        <p class="section-kicker mono">service registry</p>
+        <h2 class="section-heading">Selected platforms shipped across media, social, and commerce.</h2>
+      </div>
+      <div class="service-registry">
+        <article class="service-card">
+          <div class="service-topline"><span>music.platform</span><span class="status-pill status-green">Live</span></div>
+          <h3>iTunes</h3>
+          <p>Music platform for listening, downloading, and purchasing music.</p>
+          <div class="service-meta"><span>Media</span><span>Backend Platform</span></div>
+          <a href="https://itunes.ir" target="_blank" rel="noopener noreferrer">View service</a>
+        </article>
+        <article class="service-card">
+          <div class="service-topline"><span>audio.content</span><span class="status-pill status-green">Live</span></div>
+          <h3>ChaarGoosh</h3>
+          <p>Platform for audiobooks, podcasts, and curated book packs.</p>
+          <div class="service-meta"><span>Audio</span><span>Content Systems</span></div>
+          <a href="https://chaargoosh.com" target="_blank" rel="noopener noreferrer">View service</a>
+        </article>
+        <article class="service-card">
+          <div class="service-topline"><span>audio.content</span><span class="status-pill status-green">Live</span></div>
+          <h3>Baazigooshi</h3>
+          <p>Web-based gaming platform with B2B projects for Namava, Digikala, and Zarebin.</p>
+          <div class="service-meta"><span>Gaming</span><span>B2B Integrations</span></div>
+          <a href="https://baazigooshi.com" target="_blank" rel="noopener noreferrer">View service</a>
+        </article>
+        <article class="service-card">
+          <div class="service-topline"><span>video.stream</span><span class="status-pill status-green">Live</span></div>
+          <h3>Vidaneh</h3>
+          <p>Video sharing and streaming platform for publishing and watching videos.</p>
+          <div class="service-meta"><span>Streaming</span><span>Media Backend</span></div>
+          <a href="https://vidaneh.com" target="_blank" rel="noopener noreferrer">View service</a>
+        </article>
+        <article class="service-card">
+          <div class="service-topline"><span>social.feed</span><span class="status-pill status-green">Live</span></div>
+          <h3>Azad</h3>
+          <p>Social media application for sharing thoughts and ideas.</p>
+          <div class="service-meta"><span>Social</span><span>APIs</span></div>
+          <a href="https://azad.im" target="_blank" rel="noopener noreferrer">View service</a>
+        </article>
+        <article class="service-card">
+          <div class="service-topline"><span>publishing.news</span><span class="status-pill status-green">Live</span></div>
+          <h3>Iqbal Forum</h3>
+          <p>News and magazine website connecting stories between Iran and Pakistan.</p>
+          <div class="service-meta"><span>Publishing</span><span>CMS</span></div>
+          <a href="https://iqbalforum.org" target="_blank" rel="noopener noreferrer">View service</a>
+        </article>
+        <article class="service-card">
+          <div class="service-topline"><span>travel.booking</span><span class="status-pill status-green">Live</span></div>
+          <h3>Gardima</h3>
+          <p>Travel platform for buying tickets and reserving hotels.</p>
+          <div class="service-meta"><span>Travel</span><span>Commerce</span></div>
+          <a href="https://gardima.ir" target="_blank" rel="noopener noreferrer">View service</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section section-observed">
+      <div class="section-header">
+        <p class="section-kicker mono">deployment timeline</p>
+        <h2 class="section-heading">Release history across teams, products, and mentoring.</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <span class="timeline-date mono">Oct 2024 - Present</span>
+          <h3>Senior Software Engineer</h3>
+          <p class="timeline-company">Faraatar Entrepreneurship Group - Tehran, Iran</p>
+          <ul>
+            <li>Backend development with Python and Odoo.</li>
+            <li>Designing, building, and maintaining scalable web applications.</li>
+            <li>API integration, performance optimization, and cross-functional delivery.</li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date mono">Oct 2023 - Aug 2024</span>
+          <h3>Freelance Software Engineer</h3>
+          <p class="timeline-company">Remote</p>
+          <ul>
+            <li>Designed RESTful APIs with Go/Gin and Python/Django.</li>
+            <li>Developed scalable microservices including streaming services.</li>
+            <li>Implemented CI/CD pipelines and third-party integrations.</li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date mono">Aug 2023 - Jun 2024</span>
+          <h3>Python/Django Mentor</h3>
+          <p class="timeline-company">Maktab Sharif - Tehran, Iran</p>
+          <ul>
+            <li>Conducted Python and Django training sessions.</li>
+            <li>Provided mentorship, troubleshooting, and curriculum support.</li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date mono">Sep 2023 - Nov 2023</span>
+          <h3>Python/Django Mentor</h3>
+          <p class="timeline-company">Quera - Tehran, Iran</p>
+          <ul>
+            <li>Led inclusive Python and Django sessions.</li>
+            <li>Created exercises and supported learners with coding feedback.</li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date mono">Sep 2022 - Sep 2023</span>
+          <h3>Senior Backend Developer</h3>
+          <p class="timeline-company">Azadfekri School - Tehran, Iran</p>
+          <ul>
+            <li>Designed RESTful APIs and scalable backend systems.</li>
+            <li>Led development delivery and optimized database performance.</li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date mono">Sep 2021 - Sep 2022</span>
+          <h3>Technical Backend Developer Expert</h3>
+          <p class="timeline-company">Golden Key - Tehran, Iran</p>
+          <ul>
+            <li>Built and maintained backend systems for web applications.</li>
+            <li>Improved performance through troubleshooting and optimization.</li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date mono">Apr 2021 - Aug 2021</span>
+          <h3>Python Backend Developer</h3>
+          <p class="timeline-company">Codenegar - Tehran, Iran</p>
+          <ul>
+            <li>Implemented new backend functionality and resolved critical bugs.</li>
+            <li>Improved application stability and speed.</li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <span class="timeline-date mono">Dec 2020 - Mar 2021</span>
+          <h3>Python Backend Intern</h3>
+          <p class="timeline-company">Richedu - Vancouver, Canada</p>
+          <ul>
+            <li>Developed Python code for data analysis and visualization.</li>
+            <li>Supported optimization, testing, documentation, and maintenance.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-observed">
+      <div class="section-header">
+        <p class="section-kicker mono">open connection</p>
+        <h2 class="section-heading">Start a conversation with a clear signal.</h2>
+      </div>
+      <div class="contact-layout">
+        <form class="contact-form panel" id="contactForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="What should we build or improve?" required></textarea>
+          <button class="button button-primary" type="submit">
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            Send Message
+          </button>
+        </form>
+        <aside class="panel contact-panel">
+          <h3>Direct channels</h3>
+          <p>Resume, code, professional profile, and support links are ready.</p>
+          <div class="contact-links">
+            <a href="mailto:amirkiankiani@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Email</a>
+            <a href="src/Amirkian-Resume.pdf"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>Resume</a>
+            <a href="https://github.com/blizzardpy" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
+            <a href="https://www.linkedin.com/in/amirkian-kiani" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i>LinkedIn</a>
+            <a href="https://www.buymeacoffee.com/amirkiankiani" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i>Buy Me a Coffee</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="mono">status: available for serious backend work</p>
+    <p>&copy; 2026 Amirkian Kiani. Built as a static command center.</p>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" type="button" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -6,11 +6,75 @@ const htmlPath = join(root, 'index.html');
 const html = readFileSync(htmlPath, 'utf8');
 const failures = [];
 
-const localReferencePattern = /\b(?:src|href)\s*=\s*["']([^"']+)["']/gi;
-const idPattern = /\bid\s*=\s*["']([^"']+)["']/gi;
-const blankAnchorPattern = /<a\b[^>]*target\s*=\s*["']_blank["'][^>]*>/gi;
+const tagPattern = /<([a-z][\w:-]*)\b((?:"[^"]*"|'[^']*'|[^'">])*)>/gi;
 
-const ids = new Set([...html.matchAll(idPattern)].map((match) => match[1]));
+function parseAttributes(source) {
+  const attributes = new Map();
+  let index = 0;
+
+  while (index < source.length) {
+    while (index < source.length && /[\s/]/.test(source[index])) {
+      index += 1;
+    }
+
+    const nameStart = index;
+    while (index < source.length && !/[\s"'<>/=]/.test(source[index])) {
+      index += 1;
+    }
+
+    if (nameStart === index) {
+      index += 1;
+      continue;
+    }
+
+    const name = source.slice(nameStart, index).toLowerCase();
+
+    while (index < source.length && /\s/.test(source[index])) {
+      index += 1;
+    }
+
+    if (source[index] !== '=') {
+      continue;
+    }
+
+    index += 1;
+
+    while (index < source.length && /\s/.test(source[index])) {
+      index += 1;
+    }
+
+    const quote = source[index];
+    if (quote !== '"' && quote !== "'") {
+      continue;
+    }
+
+    index += 1;
+    const valueStart = index;
+    while (index < source.length && source[index] !== quote) {
+      index += 1;
+    }
+
+    attributes.set(name, source.slice(valueStart, index));
+
+    if (source[index] === quote) {
+      index += 1;
+    }
+  }
+
+  return attributes;
+}
+
+const tags = [...html.matchAll(tagPattern)].map((match) => ({
+  name: match[1].toLowerCase(),
+  source: match[0],
+  attributes: parseAttributes(match[2]),
+}));
+
+const ids = new Set(
+  tags
+    .map((tag) => tag.attributes.get('id'))
+    .filter((id) => id !== undefined),
+);
 
 function isExternalReference(value) {
   return /^(https?:)?\/\//i.test(value) ||
@@ -31,11 +95,9 @@ function isCurrentDocumentPath(localPath) {
   return normalizedPath === '' || normalizedPath === 'index.html';
 }
 
-for (const match of html.matchAll(localReferencePattern)) {
-  const reference = match[1];
-
+function verifyLocalReference(reference) {
   if (isExternalReference(reference)) {
-    continue;
+    return;
   }
 
   const localPath = stripFragmentAndQuery(reference);
@@ -46,7 +108,7 @@ for (const match of html.matchAll(localReferencePattern)) {
       decodedLocalPath = decodeURIComponent(localPath);
     } catch {
       failures.push(`Malformed local asset reference: ${reference}`);
-      continue;
+      return;
     }
   }
 
@@ -56,7 +118,7 @@ for (const match of html.matchAll(localReferencePattern)) {
   }
 
   if (!localPath) {
-    continue;
+    return;
   }
 
   const resolvedPath = join(root, decodedLocalPath);
@@ -65,18 +127,29 @@ for (const match of html.matchAll(localReferencePattern)) {
   }
 }
 
-for (const match of html.matchAll(blankAnchorPattern)) {
-  const anchor = match[0];
-  const relMatch = anchor.match(/\brel\s*=\s*["']([^"']+)["']/i);
+for (const tag of tags) {
+  for (const attributeName of ['src', 'href']) {
+    const reference = tag.attributes.get(attributeName);
+    if (reference !== undefined) {
+      verifyLocalReference(reference);
+    }
+  }
+}
+
+for (const tag of tags) {
+  if (tag.name !== 'a' || tag.attributes.get('target')?.toLowerCase() !== '_blank') {
+    continue;
+  }
+
   const relValues = new Set(
-    (relMatch?.[1] ?? '')
+    (tag.attributes.get('rel') ?? '')
       .split(/\s+/)
       .filter(Boolean)
       .map((value) => value.toLowerCase()),
   );
 
   if (!relValues.has('noopener') || !relValues.has('noreferrer')) {
-    failures.push(`External blank link missing rel safety: ${anchor}`);
+    failures.push(`External blank link missing rel safety: ${tag.source}`);
   }
 }
 

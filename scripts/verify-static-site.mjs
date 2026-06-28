@@ -1,7 +1,8 @@
 import { existsSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { isAbsolute, join, relative, resolve } from 'node:path';
 
 const root = process.cwd();
+const resolvedRoot = resolve(root);
 const htmlPath = join(root, 'index.html');
 const html = readFileSync(htmlPath, 'utf8');
 const failures = [];
@@ -90,12 +91,35 @@ function getFragment(value) {
   return fragmentIndex === -1 ? '' : value.slice(fragmentIndex + 1);
 }
 
+function validateReferenceUri(reference) {
+  try {
+    decodeURI(reference);
+    return true;
+  } catch {
+    failures.push(`Malformed reference URI: ${reference}`);
+    return false;
+  }
+}
+
 function isCurrentDocumentPath(localPath) {
   const normalizedPath = localPath.replace(/^\.?\//, '');
   return normalizedPath === '' || normalizedPath === 'index.html';
 }
 
+function isWithinSiteRoot(resolvedPath) {
+  const relativePath = relative(resolvedRoot, resolvedPath);
+  return relativePath === '' || (!relativePath.startsWith('..') && !isAbsolute(relativePath));
+}
+
+function toSiteRelativePath(localPath) {
+  return localPath.startsWith('/') ? localPath.slice(1) : localPath;
+}
+
 function verifyLocalReference(reference) {
+  if (!validateReferenceUri(reference)) {
+    return;
+  }
+
   if (isExternalReference(reference)) {
     return;
   }
@@ -107,7 +131,7 @@ function verifyLocalReference(reference) {
     try {
       decodedLocalPath = decodeURIComponent(localPath);
     } catch {
-      failures.push(`Malformed local asset reference: ${reference}`);
+      failures.push(`Malformed reference URI: ${reference}`);
       return;
     }
   }
@@ -121,7 +145,12 @@ function verifyLocalReference(reference) {
     return;
   }
 
-  const resolvedPath = join(root, decodedLocalPath);
+  const resolvedPath = resolve(root, toSiteRelativePath(decodedLocalPath));
+  if (!isWithinSiteRoot(resolvedPath)) {
+    failures.push(`Local asset escapes site root: ${reference}`);
+    return;
+  }
+
   if (!existsSync(resolvedPath)) {
     failures.push(`Missing local asset: ${reference}`);
   }

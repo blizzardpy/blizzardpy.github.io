@@ -3,414 +3,391 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Amirkian Kiani is a senior software engineer focused on scalable backend systems, APIs, streaming platforms, and production reliability.">
-  <title>Amirkian Kiani | Backend Command Center</title>
+  <meta name="description" content="Amirkian Kiani — Senior Software Engineer building scalable backend systems, AI/LLM pipelines, media platforms, and ERP automation with Python, Go, and Odoo.">
+  <meta name="theme-color" content="#080A14">
+  <meta property="og:title" content="Amirkian Kiani — Senior Software Engineer">
+  <meta property="og:description" content="Backends that stay calm under load, and the AI systems layered on top. 7+ years across APIs, media pipelines, ERP automation, and LLM features.">
+  <meta property="og:type" content="website">
+  <title>Amirkian Kiani — Senior Software Engineer</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237C5CFF'/%3E%3Cstop offset='1' stop-color='%2322D3EE'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23080A14'/%3E%3Ccircle cx='16' cy='16' r='8' fill='url(%23g)'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Living aurora backdrop -->
+  <div class="aurora" data-aurora aria-hidden="true">
+    <span class="aurora-blob blob-violet"></span>
+    <span class="aurora-blob blob-cyan"></span>
+    <span class="aurora-blob blob-magenta"></span>
+    <span class="aurora-blob blob-emerald"></span>
+    <span class="aurora-grain"></span>
+  </div>
+  <div class="cursor-glow" data-cursor aria-hidden="true"></div>
+
   <header class="site-header" data-header>
     <nav class="nav-shell" aria-label="Primary navigation">
-      <a class="brand mono" href="#hero" aria-label="Go to top">
-        <span class="brand-mark">AK</span>
-        <span>command-center</span>
+      <a class="brand" href="#top" aria-label="Amirkian Kiani — home">
+        <span class="brand-orb"></span>
+        <span class="brand-name">Amirkian Kiani</span>
       </a>
       <div class="nav-links" data-nav-links>
-        <a href="#about">Profile</a>
-        <a href="#skills">Stack</a>
-        <a href="#projects">Services</a>
-        <a href="#experience">Timeline</a>
+        <a href="#about">About</a>
+        <a href="#stack">Stack</a>
+        <a href="#work">Work</a>
+        <a href="#timeline">Experience</a>
         <a href="#contact">Contact</a>
       </div>
-      <a class="nav-action" href="src/Amirkian-Resume.pdf">
-        <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
-        Resume
+      <a class="btn btn-ghost nav-resume" href="src/Amirkian-Resume.pdf" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+        Résumé
       </a>
+      <button class="nav-toggle" data-nav-toggle type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </nav>
   </header>
 
-  <main>
-    <section id="hero" class="hero section-observed">
-      <div class="hero-layout">
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow mono">production profile / senior software engineer</p>
-          <h1>Backend systems that stay readable under pressure.</h1>
-          <p class="hero-summary">
-            I am Amirkian Kiani, a senior software engineer building scalable APIs,
-            streaming platforms, data-heavy workflows, and reliable backend services
-            across Python, Go, Odoo, and modern cloud tooling.
+          <p class="signal" data-reveal><span class="signal-dot"></span>Senior Software Engineer — Tehran, Iran</p>
+          <h1 class="hero-title" data-reveal>
+            <span class="line">Backends that stay</span>
+            <span class="line">calm under load —</span>
+            <span class="line grad-text">and the AI on top.</span>
+          </h1>
+          <p class="hero-lede" data-reveal>
+            I'm Amirkian Kiani. For <strong>7+ years</strong> I've turned business processes into
+            production software: scalable APIs, media pipelines, ERP automation, and LLM-powered
+            features across <strong>Python</strong>, <strong>Go</strong>, and <strong>Odoo</strong>.
           </p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="button button-primary" href="#projects">
-              <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
-              View Service Registry
+          <div class="hero-actions" data-reveal>
+            <a class="btn btn-primary" href="#work">
+              View selected work
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
-            <a class="button button-secondary" href="#contact">
-              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-              Open Connection
+            <a class="btn btn-ghost" href="src/Amirkian-Resume.pdf" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+              Download résumé
             </a>
           </div>
-
-          <div class="command-terminal" aria-label="Interactive command terminal">
-            <div class="terminal-topline">
-              <span class="terminal-dot is-red"></span>
-              <span class="terminal-dot is-amber"></span>
-              <span class="terminal-dot is-green"></span>
-              <span class="terminal-title mono">amirkian@portfolio:~</span>
-            </div>
-            <div class="command-row">
-              <span class="prompt mono">$</span>
-              <output class="command-output mono" id="commandOutput">system profile online. choose a command.</output>
-            </div>
-            <div class="command-list" aria-label="Terminal commands">
-              <button class="command-chip mono" type="button" data-command="whoami">whoami</button>
-              <button class="command-chip mono" type="button" data-command="stack">stack</button>
-              <button class="command-chip mono" type="button" data-command="projects">projects</button>
-              <button class="command-chip mono" type="button" data-command="contact">contact</button>
-            </div>
-          </div>
+          <ul class="hero-langs" data-reveal aria-label="Primary languages">
+            <li>Python</li><li>Go</li><li>JavaScript</li><li>SQL</li>
+          </ul>
         </div>
 
-        <aside class="ops-dashboard" aria-label="Live system overview">
-          <div class="dashboard-header">
-            <div>
-              <p class="panel-kicker mono">live system overview</p>
-              <h2>Backend Command Center</h2>
+        <aside class="id-card glass" data-reveal data-tilt aria-label="Profile summary">
+          <div class="id-photo">
+            <img src="src/images/profile-image.jpeg" alt="Portrait of Amirkian Kiani" width="132" height="132" loading="eager">
+            <span class="id-available"><span class="id-pulse"></span>Available for work</span>
+          </div>
+          <div class="id-body">
+            <h2 class="id-name">Amirkian Kiani</h2>
+            <p class="id-role">Senior Software Engineer · Backend &amp; AI</p>
+            <div class="id-stats">
+              <div class="id-stat">
+                <strong data-count="7" data-suffix="+">7+</strong>
+                <span>years shipping backends</span>
+              </div>
+              <div class="id-stat">
+                <strong data-count="3" data-suffix="M+">3M+</strong>
+                <span>users served</span>
+              </div>
+              <div class="id-stat">
+                <strong data-count="10" data-suffix="+">10+</strong>
+                <span>platforms delivered</span>
+              </div>
             </div>
-            <span class="status-pill status-green">Operational</span>
-          </div>
-
-          <div class="profile-node">
-            <img src="src/images/profile-image.jpeg" alt="Portrait of Amirkian Kiani">
-            <div>
-              <strong>Amirkian Kiani</strong>
-              <span>Senior Software Engineer</span>
-            </div>
-          </div>
-
-          <div class="status-grid">
-            <article class="metric-card" data-metric="latency">
-              <span class="metric-label mono">api.latency</span>
-              <strong><span data-metric-value="latency">42</span>ms</strong>
-              <small>optimized request paths</small>
-            </article>
-            <article class="metric-card" data-metric="uptime">
-              <span class="metric-label mono">system.uptime</span>
-              <strong><span data-metric-value="uptime">99.9</span>%</strong>
-              <small>reliability mindset</small>
-            </article>
-            <article class="metric-card" data-metric="throughput">
-              <span class="metric-label mono">queue.flow</span>
-              <strong><span data-metric-value="throughput">18k</span></strong>
-              <small>jobs processed</small>
-            </article>
-            <article class="metric-card" data-metric="coverage">
-              <span class="metric-label mono">scope.years</span>
-              <strong>10+</strong>
-              <small>years shipped</small>
-            </article>
-          </div>
-
-          <div class="architecture-map" aria-label="Architecture map">
-            <div class="arch-node node-api">API Gateway</div>
-            <div class="arch-node node-worker">Workers</div>
-            <div class="arch-node node-data">Data Layer</div>
-            <div class="arch-node node-client">Client Apps</div>
-            <span class="arch-line line-a"></span>
-            <span class="arch-line line-b"></span>
-            <span class="arch-line line-c"></span>
-          </div>
-
-          <div class="event-log" aria-live="polite">
-            <div class="event-log-header">
-              <span class="mono">event.stream</span>
-              <span class="status-dot"></span>
-            </div>
-            <div class="event-list" id="eventLog">
-              <p><span>07:42</span> portfolio service initialized</p>
-              <p><span>07:43</span> project registry synchronized</p>
-              <p><span>07:44</span> contact channel standing by</p>
+            <div class="id-links">
+              <a href="https://github.com/blizzardpy" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+              <a href="https://www.linkedin.com/in/amirkian-kiani" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+              <a href="mailto:great.kian2001@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
             </div>
           </div>
         </aside>
       </div>
-    </section>
 
-    <section id="about" class="section section-observed">
-      <div class="section-header">
-        <p class="section-kicker mono">engineer profile</p>
-        <h2 class="section-heading">A backend operator with product sense.</h2>
-      </div>
-      <div class="profile-grid">
-        <article class="panel profile-panel">
-          <span class="panel-icon"><i class="fa-solid fa-server" aria-hidden="true"></i></span>
-          <h3>Core focus</h3>
-          <p>Backend architecture, API design, data flows, Odoo systems, streaming services, and performance-sensitive web platforms.</p>
-        </article>
-        <article class="panel profile-panel">
-          <span class="panel-icon"><i class="fa-solid fa-network-wired" aria-hidden="true"></i></span>
-          <h3>Systems I build</h3>
-          <p>Content platforms, B2B services, media workflows, mobile-backed APIs, integrations, and internal tools that need to survive real usage.</p>
-        </article>
-        <article class="panel profile-panel">
-          <span class="panel-icon"><i class="fa-solid fa-code-branch" aria-hidden="true"></i></span>
-          <h3>Working style</h3>
-          <p>Clear interfaces, measurable behavior, pragmatic delivery, and close collaboration with product, operations, and engineering teams.</p>
-        </article>
-        <article class="panel profile-panel">
-          <span class="panel-icon"><i class="fa-solid fa-signal" aria-hidden="true"></i></span>
-          <h3>Current signal</h3>
-          <p>Senior Software Engineer at Faraatar Entrepreneurship Group, focused on backend development with Python and Odoo.</p>
-        </article>
+      <!-- Impact strip -->
+      <div class="impact" data-reveal>
+        <div class="impact-item">
+          <strong data-count="7" data-suffix="+">7+</strong>
+          <span>years of Python backend</span>
+        </div>
+        <div class="impact-item">
+          <strong data-count="3" data-suffix="M+">3M+</strong>
+          <span>users on a single platform</span>
+        </div>
+        <div class="impact-item">
+          <strong data-count="80" data-suffix="%">80%</strong>
+          <span>faster response times</span>
+        </div>
       </div>
     </section>
 
-    <section id="skills" class="section section-observed">
-      <div class="section-header">
-        <p class="section-kicker mono">infrastructure map</p>
-        <h2 class="section-heading">The stack is grouped by how systems actually run.</h2>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <header class="section-head">
+        <p class="kicker"><span class="kicker-tick"></span>about</p>
+        <h2 class="section-title">Three things I do, done well.</h2>
+        <p class="section-sub">Ten years of programming, seven professional — spent turning fuzzy business requirements into software that survives real usage.</p>
+      </header>
+      <div class="about-grid">
+        <article class="glass about-card" data-reveal>
+          <span class="about-icon"><i class="fa-solid fa-server" aria-hidden="true"></i></span>
+          <h3>Backend architecture</h3>
+          <p>Scalable APIs, microservices, and event-driven workflows that hold up under load. I design clean service boundaries and keep them readable as they grow.</p>
+          <p class="about-tags">Python · Django/DRF · FastAPI · Go/Gin · Node.js · Odoo · PostgreSQL · Redis · Celery · Docker · Kubernetes</p>
+        </article>
+        <article class="glass about-card" data-reveal>
+          <span class="about-icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></span>
+          <h3>AI &amp; automation</h3>
+          <p>LLM assistants, retrieval-augmented Q&amp;A, and media-intelligence pipelines: transcription, captioning, and summarization wired into real products and internal workflows.</p>
+          <p class="about-tags">RAG · Prompt workflows · LlamaIndex · pgvector · Pinecone · OpenAI · n8n · MCP</p>
+        </article>
+        <article class="glass about-card" data-reveal>
+          <span class="about-icon"><i class="fa-solid fa-people-group" aria-hidden="true"></i></span>
+          <h3>Technical leadership</h3>
+          <p>Architecture review, code review, and mentoring. I've trained Django engineers at Maktab Sharif &amp; Quera and led delivery with product and operations stakeholders.</p>
+          <p class="about-tags">Ownership · Architecture review · Mentoring · Documentation · Stakeholder collaboration</p>
+        </article>
       </div>
-      <div class="stack-map">
-        <article class="panel stack-group" data-stack-group="backend">
-          <h3>Backend</h3>
-          <div class="skill-cloud">
-            <span>Python</span>
-            <span>Go</span>
-            <span>Django</span>
-            <span>FastAPI</span>
-            <span>Flask</span>
-            <span>Gin</span>
-            <span>Node.js</span>
-            <span>Odoo</span>
+    </section>
+
+    <!-- STACK -->
+    <section class="section" id="stack">
+      <header class="section-head">
+        <p class="kicker"><span class="kicker-tick"></span>stack</p>
+        <h2 class="section-title">The toolkit, grouped by how systems actually run.</h2>
+      </header>
+      <div class="stack-grid">
+        <article class="glass stack-card" data-reveal>
+          <h3><i class="fa-solid fa-code" aria-hidden="true"></i> Backend</h3>
+          <div class="chips">
+            <span>Python</span><span>Go</span><span>Django</span><span>DRF</span><span>FastAPI</span><span>Gin</span><span>Node.js</span><span>NestJS</span><span>Odoo</span>
           </div>
         </article>
-        <article class="panel stack-group" data-stack-group="data">
-          <h3>Data</h3>
-          <div class="skill-cloud">
-            <span>PostgreSQL</span>
-            <span>MariaDB</span>
-            <span>Redis</span>
-            <span>Celery</span>
-            <span>Query Optimization</span>
+        <article class="glass stack-card" data-reveal>
+          <h3><i class="fa-solid fa-database" aria-hidden="true"></i> Data</h3>
+          <div class="chips">
+            <span>PostgreSQL</span><span>MariaDB</span><span>Redis</span><span>Celery</span><span>Elasticsearch</span><span>pgvector</span><span>Pinecone</span>
           </div>
         </article>
-        <article class="panel stack-group" data-stack-group="infra">
-          <h3>Infrastructure</h3>
-          <div class="skill-cloud">
-            <span>Docker</span>
-            <span>Kubernetes</span>
-            <span>Nginx</span>
-            <span>CI/CD</span>
-            <span>Linux</span>
+        <article class="glass stack-card" data-reveal>
+          <h3><i class="fa-solid fa-cubes" aria-hidden="true"></i> Infrastructure</h3>
+          <div class="chips">
+            <span>Docker</span><span>Kubernetes</span><span>Nginx</span><span>CI/CD</span><span>Linux</span><span>Git</span><span>FFmpeg</span>
           </div>
         </article>
-        <article class="panel stack-group" data-stack-group="apps">
-          <h3>Frontend and Mobile</h3>
-          <div class="skill-cloud">
-            <span>JavaScript</span>
-            <span>React</span>
-            <span>Next.js</span>
-            <span>Swift</span>
-            <span>SwiftUI</span>
-            <span>Dart</span>
-            <span>Flutter</span>
+        <article class="glass stack-card" data-reveal>
+          <h3><i class="fa-solid fa-robot" aria-hidden="true"></i> AI &amp; media</h3>
+          <div class="chips">
+            <span>OpenAI API</span><span>RAG</span><span>LlamaIndex</span><span>Prompt design</span><span>n8n</span><span>MCP</span><span>Transcription</span><span>Captioning</span>
           </div>
         </article>
-        <article class="panel stack-group" data-stack-group="tooling">
-          <h3>AI and Media Tooling</h3>
-          <div class="skill-cloud">
-            <span>OpenAI API</span>
-            <span>FFmpeg</span>
-            <span>Automation</span>
-            <span>Integrations</span>
+        <article class="glass stack-card" data-reveal>
+          <h3><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> Frontend &amp; mobile</h3>
+          <div class="chips">
+            <span>JavaScript</span><span>React</span><span>Next.js</span><span>React Native</span><span>Swift</span><span>SwiftUI</span><span>Flutter</span>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="projects" class="section section-observed">
-      <div class="section-header">
-        <p class="section-kicker mono">service registry</p>
-        <h2 class="section-heading">Selected platforms shipped across media, social, and commerce.</h2>
-      </div>
-      <div class="service-registry">
-        <article class="service-card">
-          <div class="service-topline"><span>music.platform</span><span class="status-pill status-green">Live</span></div>
-          <h3>iTunes</h3>
-          <p>Music platform for listening, downloading, and purchasing music.</p>
-          <div class="service-meta"><span>Media</span><span>Backend Platform</span></div>
-          <a href="https://itunes.ir" target="_blank" rel="noopener noreferrer">View service</a>
-        </article>
-        <article class="service-card">
-          <div class="service-topline"><span>audio.content</span><span class="status-pill status-green">Live</span></div>
-          <h3>ChaarGoosh</h3>
-          <p>Platform for audiobooks, podcasts, and curated book packs.</p>
-          <div class="service-meta"><span>Audio</span><span>Content Systems</span></div>
-          <a href="https://chaargoosh.com" target="_blank" rel="noopener noreferrer">View service</a>
-        </article>
-        <article class="service-card">
-          <div class="service-topline"><span>games.b2b</span><span class="status-pill status-green">Live</span></div>
+    <!-- WORK -->
+    <section class="section" id="work">
+      <header class="section-head">
+        <p class="kicker"><span class="kicker-tick"></span>selected work</p>
+        <h2 class="section-title">Platforms shipped across media, social, and commerce.</h2>
+      </header>
+
+      <div class="work-featured">
+        <article class="glass work-card feature" data-reveal>
+          <div class="work-top">
+            <span class="work-eyebrow">B2B gaming · 3M+ users</span>
+            <span class="chip-live"><span class="dot"></span>Live</span>
+          </div>
           <h3>Baazigooshi</h3>
-          <p>Web-based gaming platform with B2B projects for Namava, Digikala, and Zarebin.</p>
-          <div class="service-meta"><span>Gaming</span><span>B2B Integrations</span></div>
-          <a href="https://baazigooshi.com" target="_blank" rel="noopener noreferrer">View service</a>
+          <p>Web-based gaming platform delivered for partners including Namava, Digikala, and Zarebin — content management, analytics, and integration services at scale.</p>
+          <div class="work-meta"><span>Backend</span><span>Analytics</span><span>Integrations</span></div>
+          <a class="work-link" href="https://baazigooshi.com" target="_blank" rel="noopener noreferrer">baazigooshi.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
         </article>
-        <article class="service-card">
-          <div class="service-topline"><span>video.stream</span><span class="status-pill status-green">Live</span></div>
-          <h3>Vidaneh</h3>
-          <p>Video sharing and streaming platform for publishing and watching videos.</p>
-          <div class="service-meta"><span>Streaming</span><span>Media Backend</span></div>
-          <a href="https://vidaneh.com" target="_blank" rel="noopener noreferrer">View service</a>
-        </article>
-        <article class="service-card">
-          <div class="service-topline"><span>social.feed</span><span class="status-pill status-green">Live</span></div>
-          <h3>Azad</h3>
-          <p>Social media application for sharing thoughts and ideas.</p>
-          <div class="service-meta"><span>Social</span><span>APIs</span></div>
-          <a href="https://azad.im" target="_blank" rel="noopener noreferrer">View service</a>
-        </article>
-        <article class="service-card">
-          <div class="service-topline"><span>publishing.news</span><span class="status-pill status-green">Live</span></div>
-          <h3>Iqbal Forum</h3>
-          <p>News and magazine website connecting stories between Iran and Pakistan.</p>
-          <div class="service-meta"><span>Publishing</span><span>CMS</span></div>
-          <a href="https://iqbalforum.org" target="_blank" rel="noopener noreferrer">View service</a>
-        </article>
-        <article class="service-card">
-          <div class="service-topline"><span>travel.booking</span><span class="status-pill status-green">Live</span></div>
-          <h3>Gardima</h3>
-          <p>Travel platform for buying tickets and reserving hotels.</p>
-          <div class="service-meta"><span>Travel</span><span>Commerce</span></div>
-          <a href="https://gardima.ir" target="_blank" rel="noopener noreferrer">View service</a>
-        </article>
-      </div>
-    </section>
-
-    <section id="experience" class="section section-observed">
-      <div class="section-header">
-        <p class="section-kicker mono">deployment timeline</p>
-        <h2 class="section-heading">Release history across teams, products, and mentoring.</h2>
-      </div>
-      <div class="timeline">
-        <article class="timeline-item">
-          <span class="timeline-date mono">Oct 2024 - Present</span>
-          <h3>Senior Software Engineer</h3>
-          <p class="timeline-company">Faraatar Entrepreneurship Group - Tehran, Iran</p>
-          <ul>
-            <li>Backend development with Python and Odoo.</li>
-            <li>Designing, building, and maintaining scalable web applications.</li>
-            <li>API integration, performance optimization, and cross-functional delivery.</li>
-          </ul>
-        </article>
-        <article class="timeline-item">
-          <span class="timeline-date mono">Oct 2023 - Aug 2024</span>
-          <h3>Freelance Software Engineer</h3>
-          <p class="timeline-company">Remote</p>
-          <ul>
-            <li>Designed RESTful APIs with Go/Gin and Python/Django.</li>
-            <li>Developed scalable microservices including streaming services.</li>
-            <li>Implemented CI/CD pipelines and third-party integrations.</li>
-          </ul>
-        </article>
-        <article class="timeline-item">
-          <span class="timeline-date mono">Aug 2023 - Jun 2024</span>
-          <h3>Python/Django Mentor</h3>
-          <p class="timeline-company">Maktab Sharif - Tehran, Iran</p>
-          <ul>
-            <li>Conducted Python and Django training sessions.</li>
-            <li>Provided mentorship, troubleshooting, and curriculum support.</li>
-          </ul>
-        </article>
-        <article class="timeline-item">
-          <span class="timeline-date mono">Sep 2023 - Nov 2023</span>
-          <h3>Python/Django Mentor</h3>
-          <p class="timeline-company">Quera - Tehran, Iran</p>
-          <ul>
-            <li>Led inclusive Python and Django sessions.</li>
-            <li>Created exercises and supported learners with coding feedback.</li>
-          </ul>
-        </article>
-        <article class="timeline-item">
-          <span class="timeline-date mono">Sep 2022 - Sep 2023</span>
-          <h3>Senior Backend Developer</h3>
-          <p class="timeline-company">Azadfekri School - Tehran, Iran</p>
-          <ul>
-            <li>Designed RESTful APIs and scalable backend systems.</li>
-            <li>Led development delivery and optimized database performance.</li>
-          </ul>
-        </article>
-        <article class="timeline-item">
-          <span class="timeline-date mono">Sep 2021 - Sep 2022</span>
-          <h3>Technical Backend Developer Expert</h3>
-          <p class="timeline-company">Golden Key - Tehran, Iran</p>
-          <ul>
-            <li>Built and maintained backend systems for web applications.</li>
-            <li>Improved performance through troubleshooting and optimization.</li>
-          </ul>
-        </article>
-        <article class="timeline-item">
-          <span class="timeline-date mono">Apr 2021 - Aug 2021</span>
-          <h3>Python Backend Developer</h3>
-          <p class="timeline-company">Codenegar - Tehran, Iran</p>
-          <ul>
-            <li>Implemented new backend functionality and resolved critical bugs.</li>
-            <li>Improved application stability and speed.</li>
-          </ul>
-        </article>
-        <article class="timeline-item">
-          <span class="timeline-date mono">Dec 2020 - Mar 2021</span>
-          <h3>Python Backend Intern</h3>
-          <p class="timeline-company">Richedu - Vancouver, Canada</p>
-          <ul>
-            <li>Developed Python code for data analysis and visualization.</li>
-            <li>Supported optimization, testing, documentation, and maintenance.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" class="section section-observed">
-      <div class="section-header">
-        <p class="section-kicker mono">open connection</p>
-        <h2 class="section-heading">Start a conversation with a clear signal.</h2>
-      </div>
-      <div class="contact-layout">
-        <form class="contact-form panel" id="contactForm">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="What should we build or improve?" required></textarea>
-          <button class="button button-primary" type="submit">
-            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-            Send Message
-          </button>
-        </form>
-        <aside class="panel contact-panel">
-          <h3>Direct channels</h3>
-          <p>Resume, code, professional profile, and support links are ready.</p>
-          <div class="contact-links">
-            <a href="mailto:amirkiankiani@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Email</a>
-            <a href="src/Amirkian-Resume.pdf"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>Resume</a>
-            <a href="https://github.com/blizzardpy" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
-            <a href="https://www.linkedin.com/in/amirkian-kiani" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i>LinkedIn</a>
-            <a href="https://www.buymeacoffee.com/amirkiankiani" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i>Buy Me a Coffee</a>
+        <article class="glass work-card feature" data-reveal>
+          <div class="work-top">
+            <span class="work-eyebrow">AI social · LLM pipelines</span>
+            <span class="chip-live"><span class="dot"></span>Live</span>
           </div>
-        </aside>
+          <h3>Azad</h3>
+          <p>AI-powered social platform with LLM summarization, contextual Q&amp;A, transcription, captioning, and recommendation workflows over user-generated content.</p>
+          <div class="work-meta"><span>LLM</span><span>Media intelligence</span><span>Kubernetes</span></div>
+          <a class="work-link" href="https://azad.im" target="_blank" rel="noopener noreferrer">azad.im <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </article>
+      </div>
+
+      <div class="work-grid">
+        <article class="glass work-card" data-reveal>
+          <div class="work-top"><span class="work-eyebrow">Travel · commerce</span><span class="chip-live"><span class="dot"></span>Live</span></div>
+          <h3>Gardima</h3>
+          <p>Plane, train, bus, and hotel reservations. Ticketing, payment, and booking services in Go (Gin) with a React Native app.</p>
+          <a class="work-link" href="https://gardima.ir" target="_blank" rel="noopener noreferrer">gardima.ir <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </article>
+        <article class="glass work-card" data-reveal>
+          <div class="work-top"><span class="work-eyebrow">Music platform</span><span class="chip-live"><span class="dot"></span>Live</span></div>
+          <h3>iTunes</h3>
+          <p>Listening, downloading, and purchasing music — high-volume media delivery and secure access.</p>
+          <a class="work-link" href="https://itunes.ir" target="_blank" rel="noopener noreferrer">itunes.ir <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </article>
+        <article class="glass work-card" data-reveal>
+          <div class="work-top"><span class="work-eyebrow">Audio content</span><span class="chip-live"><span class="dot"></span>Live</span></div>
+          <h3>ChaarGoosh</h3>
+          <p>Audiobooks, podcasts, and curated book packs — subscriptions, encoding, and content management.</p>
+          <a class="work-link" href="https://chaargoosh.com" target="_blank" rel="noopener noreferrer">chaargoosh.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </article>
+        <article class="glass work-card" data-reveal>
+          <div class="work-top"><span class="work-eyebrow">Video streaming</span><span class="chip-live"><span class="dot"></span>Live</span></div>
+          <h3>Vidaneh</h3>
+          <p>Video sharing and streaming — encoding, playback, and high-volume media access.</p>
+          <a class="work-link" href="https://vidaneh.com" target="_blank" rel="noopener noreferrer">vidaneh.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </article>
+        <article class="glass work-card" data-reveal>
+          <div class="work-top"><span class="work-eyebrow">ERP · Odoo</span><span class="chip-live"><span class="dot"></span>Live</span></div>
+          <h3>OdooPro</h3>
+          <p>Odoo ERP implementation, module development, workflow automation, integrations, and deployment services.</p>
+          <a class="work-link" href="https://odoopro.ir" target="_blank" rel="noopener noreferrer">odoopro.ir <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </article>
+        <article class="glass work-card" data-reveal>
+          <div class="work-top"><span class="work-eyebrow">Publishing · CMS</span><span class="chip-live"><span class="dot"></span>Live</span></div>
+          <h3>Iqbal Forum</h3>
+          <p>Multilingual news and magazine platform in Django and React, connecting stories between Iran and Pakistan.</p>
+          <a class="work-link" href="https://iqbalforum.org" target="_blank" rel="noopener noreferrer">iqbalforum.org <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section" id="timeline">
+      <header class="section-head">
+        <p class="kicker"><span class="kicker-tick"></span>experience</p>
+        <h2 class="section-title">A decade, one role at a time.</h2>
+      </header>
+      <ol class="timeline">
+        <li class="tl-item" data-reveal>
+          <span class="tl-node"></span>
+          <div class="glass tl-card">
+            <span class="tl-date">Oct 2024 — Present</span>
+            <h3>Senior Software Engineer</h3>
+            <p class="tl-org">Faraatar Entrepreneurship Group · Tehran</p>
+            <p>Odoo-based ERP and internal platforms across HR, accounting, payments, CRM, and project management. REST APIs and microservices integrating payment, messaging, and third-party workflows.</p>
+          </div>
+        </li>
+        <li class="tl-item" data-reveal>
+          <span class="tl-node"></span>
+          <div class="glass tl-card">
+            <span class="tl-date">Oct 2023 — Jul 2024</span>
+            <h3>Freelance Software Engineer</h3>
+            <p class="tl-org">Remote</p>
+            <p>Backend and integration for video processing, media delivery, and travel-ticketing in Go (Gin) and Python/Django — real-time streaming, conversion, booking, and payments under commercial load.</p>
+          </div>
+        </li>
+        <li class="tl-item" data-reveal>
+          <span class="tl-node"></span>
+          <div class="glass tl-card">
+            <span class="tl-date">Aug 2023 — Jun 2024</span>
+            <h3>Python / Django Mentor</h3>
+            <p class="tl-org">Maktab Sharif &amp; Quera · Tehran</p>
+            <p>Mentored learners in Python, Django, API design, clean code, and production practices. Built exercises and mini-projects, and shaped curriculum with instructors.</p>
+          </div>
+        </li>
+        <li class="tl-item" data-reveal>
+          <span class="tl-node"></span>
+          <div class="glass tl-card">
+            <span class="tl-date">Sep 2022 — Sep 2023</span>
+            <h3>Senior Backend Developer</h3>
+            <p class="tl-org">Azadfekri School · Tehran</p>
+            <p>Architected an AI-enabled social platform with LLM summarization and contextual Q&amp;A, plus transcription and captioning pipelines. Scalable REST APIs on Kubernetes under heavy load.</p>
+          </div>
+        </li>
+        <li class="tl-item" data-reveal>
+          <span class="tl-node"></span>
+          <div class="glass tl-card">
+            <span class="tl-date">Sep 2021 — Sep 2022</span>
+            <h3>Technical Backend Developer Expert</h3>
+            <p class="tl-org">Golden Key · Tehran</p>
+            <p>Backend for large-scale B2B products used by Digikala, Namava, Irancell, MCI, and Soroush+. Cut response times from 15–20s to 2–6s through query tuning, caching, and Redis/Celery processing.</p>
+          </div>
+        </li>
+        <li class="tl-item" data-reveal>
+          <span class="tl-node"></span>
+          <div class="glass tl-card">
+            <span class="tl-date">Apr 2021 — Aug 2021</span>
+            <h3>Python Backend Developer</h3>
+            <p class="tl-org">Codenegar · Tehran</p>
+            <p>Backend for an e-commerce platform and a creator-monetization product — REST APIs, schemas, and integration flows with frontend and DevOps teams.</p>
+          </div>
+        </li>
+        <li class="tl-item" data-reveal>
+          <span class="tl-node"></span>
+          <div class="glass tl-card">
+            <span class="tl-date">Dec 2020 — Mar 2021</span>
+            <h3>Python Backend Intern</h3>
+            <p class="tl-org">Richedu · Vancouver, Canada</p>
+            <p>Django-based Learning Management System with an international team — backend features for data handling and user management, plus testing and documentation.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="edu" data-reveal>
+        <div class="glass edu-card">
+          <span class="edu-tag">Education</span>
+          <p><strong>M.Sc. Software Engineering</strong> — Islamic Azad University, North Tehran <em>(thesis phase)</em></p>
+          <p><strong>B.Sc. Computer Engineering</strong> — Quchan University of Technology, 2024</p>
+        </div>
+        <div class="glass edu-card">
+          <span class="edu-tag">Certifications</span>
+          <p><strong>TOEFL iBT 109</strong> — R29 · L28 · S26 · W26</p>
+          <p>Leadership, Finance &amp; Marketing — Upkey · Linux 0-Z — Quera College</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="glass contact-panel" data-reveal>
+        <p class="kicker centered"><span class="kicker-tick"></span>contact</p>
+        <h2 class="contact-title">Let's build something that lasts.</h2>
+        <p class="contact-sub">Open to senior backend and AI engineering work. The fastest way to reach me is email — I read every message.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:great.kian2001@gmail.com">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            great.kian2001@gmail.com
+          </a>
+          <a class="btn btn-ghost" href="tel:+989921267228">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            +98 992 126 7228
+          </a>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:amirkiankiani@icloud.com"><i class="fa-solid fa-at" aria-hidden="true"></i>amirkiankiani@icloud.com</a>
+          <a href="https://www.linkedin.com/in/amirkian-kiani" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>LinkedIn</a>
+          <a href="https://github.com/blizzardpy" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
+          <a href="src/Amirkian-Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Résumé</a>
+          <a href="https://www.buymeacoffee.com/amirkiankiani" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i>Buy me a coffee</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p class="mono">status: available for serious backend work</p>
-    <p>&copy; 2026 Amirkian Kiani. Built as a static command center.</p>
+    <span class="foot-orb"></span>
+    <p>© 2026 Amirkian Kiani · Senior Software Engineer</p>
+    <p class="foot-note">Designed &amp; built from scratch — Tehran, Iran</p>
   </footer>
 
-  <button class="scroll-top" id="scrollTop" type="button" aria-label="Scroll to top">
+  <button class="scroll-top" data-scroll-top type="button" aria-label="Back to top">
     <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
   </button>
 
